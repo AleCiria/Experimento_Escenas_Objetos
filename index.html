@@ -16,6 +16,13 @@
     <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.2"></script>
     <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
+    <script type="text/javascript" src="Stim_List_1.js"></script>
+    <script type="text/javascript" src="Stim_List_2.js"></script>
+    <script type="text/javascript" src="Stim_List_2.js"></script>
+    <script type="text/javascript" src="stim_list_T_1.js"></script>
+    <script type="text/javascript" src="stim_list_T_2.js"></script>
+    <script type="text/javascript" src="stim_list_T_3.js"></script>
+    <script language="javascript"></script>  
   </head>
   <body></body>
   <script>  
@@ -50,7 +57,7 @@ var timeline = [];
 //se crea el primer ramdom Condition de las opciones para la fase de exposición 
 var primer_random = jsPsych.randomization.sampleWithoutReplacement([1, 2], 1)[0];
 
-jsPsych.data.addProperties({condición_fase_1: primer_random});
+jsPsych.data.addProperties({condicion_fase_1: primer_random});
 
 // Se crea la variable "imagenes" para cargarlas antes del experimento
 var imagenes = ["CONSENTIMIENTO.jpg","BIENVENIDA.jpg","INSTRUCCIONES.jpg","INSTRUCCIONES_b_1.jpg","INSTRUCCIONES_b_2.jpg",
