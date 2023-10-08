@@ -504,7 +504,7 @@ var instrucciones_teclas_3 = {
 var instrucciones_tarea = {
     type:jsPsychInstructions,
     pages: [
-    '<p>En la primera sección de la tarea se te pidió decidir a cerca de escenas y objetos.</p><p>En esta segunda sección se te presentarán una serie de imagenes de objetos.</p><p><strong>Tu tarea consiste en decidir de forma rápida y precisa para cada objeto si es: antiguo, similar o nuevo.</strong></p><p><strong>ANTIGUO:</strong> Si la imagen del objeto que observas es <strong>exactamente la misma</strong> a alguna que haya aparecido en la primera sección de la tarea.</p><p><strong>SIMILAR:</strong> Si la imagen del objeto es <strong> similar, más no idéntica </strong> a alguna que se haya presentado, esto quiere decir que puede estar representando el mismo tipo de objeto, pero con alguna(s) característica(s) diferente(s).</p><p><strong>NUEVO:</strong> Si el objeto que observas nunca se había presentado antes en la primera sección de la tarea.</p><p><strong>Presiona "continuar" para ver un ejemplo de la tarea</strong></p>',
+    '<p>En la primera sección de la tarea se te pidió decidir sobre la congruencia/incongruencia de los objetos en las escenas.</p><p>En esta segunda sección, se te presentarán una serie de imágenes de objetos.</p><p><strong>Tu tarea consiste en decidir de forma rápida y precisa para cada objeto si es: antiguo, similar o nuevo.</strong></p><p><strong>ANTIGUO:</strong> Si la imagen del objeto que observas es <strong>exactamente la misma</strong> a alguna que haya aparecido en la primera sección de la tarea.</p><p><strong>SIMILAR:</strong> Si la imagen del objeto es <strong> similar, más no idéntica </strong> a alguna que se haya presentado, esto quiere decir que puede estar representando el mismo tipo de objeto, pero con alguna(s) característica(s) diferente(s).</p><p><strong>NUEVO:</strong> Si el objeto que observas nunca se había presentado antes en la primera sección de la tarea.</p><p><strong>Presiona "continuar" para ver un ejemplo de la tarea</strong></p>',
     '<br>' + 
     '<img src="instrucciones_t.jpg" style="width: 1000px; height: auto;"></img>' ],
     button_label_next: "CONTINUAR",
@@ -540,7 +540,7 @@ timeline.push(cursor_off);
 
 var inicio_practica_2 = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<div style="font-size:22px;"><p>Antes de comenzar podrás realizar una breve práctica para familiarizarte con la tarea.</p><p>No te preocupes por las respuestas, por esta ocasión selecciona la opcion de "nuevo", el objetivo es que identifiques la dinámica de la actividad.</p><p>Coloca tus dedos sobre las teclas “V”, "B" y “N”,</p><strong><p>cuando estés list@, presiona cualquiera de ellas para comenzar la práctica :)</p> </strong></div>',
+  stimulus: '<div style="font-size:22px;"><p>Antes de comenzar realizarás una breve práctica para familiarizarte con la tarea.</p><p>No te preocupes por las respuestas, por esta ocasión selecciona la opcion de "nuevo", el objetivo es que identifiques la dinámica de la actividad.</p><p>Coloca tus dedos sobre las teclas “V”, "B" y “N”,</p><strong><p>cuando estés list@, presiona cualquiera de ellas para comenzar la práctica :)</p> </strong></div>',
   choices: ["v","n","b"],
 };
 timeline.push(inicio_practica_2);
@@ -781,7 +781,7 @@ timeline.push({
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,  
-  stimulus: "<div style='font-size: 20px;'><p>Al presionar cualquier tecla se guardarán los datos.</p><p><strong>Por favor, espera unos segundos para que terminen de cargar y después cierra la página. ¡Gracias y hasta pronto!<p> </p></strong></div>"
+  stimulus: "<div style='font-size: 20px;'><p>Al presionar cualquier tecla se guardarán los datos.</p><p><strong>Por favor, espera hasta que deje de dar vueltas el círculo para que terminen de cargar y después cierra la página. ¡Gracias y hasta pronto!<p> </p></strong></div>"
 });
     
 const save_data = {
