@@ -70,26 +70,13 @@ var aviso = {
 };
 timeline.push(aviso);
 
+
+
 // Se crea la variable "imagenes" para cargarlas antes del experimento
 var imagenes = ["CONSENTIMIENTO.jpg","BIENVENIDA.jpg","INSTRUCCIONES.jpg","INSTRUCCIONES_b_1.jpg","INSTRUCCIONES_b_2.jpg",
-    "airplane_interior_A.jpg","art_gallery_A.jpg","bakery_A.jpg","ballet_room_A.jpg","bar_A.jpg","bedroom_B.jpg","boat_interior_A.jpg","boxing_ring_A.jpg","building_stairs_B.jpg","car_interior_A.jpg","casino_B.jpg",
-    "childrens_room_A.jpg","church_B.jpg","classroom_A.jpg","clinic_A.jpg","flower_shop_B.jpg","gymnasium_A.jpg","hair_salon_A.jpg","hospital_room_A.jpg","hotel_lobby_B.jpg","ice_rink_B.jpg","jewelery_A.jpg","kitchen_B.jpg",
-    "laboratory_B.jpg","laundry_A.jpg","library_A.jpg","living_room_B.jpg","meeting_room_B.jpg","movie_theater_A.jpg","museum_B.jpg","office_work_B.jpg","orchard_B.jpg","painting_workshop_B.jpg",
-    "parking_lot_B.jpg","prison_A.jpg","public_toilet_A.jpg","restaurant_A.jpg","sewing_workshop_B.jpg","shoe_store_A.jpg","shopping_center_B.jpg","theater_A.jpg","vault_A.jpg","waiting_room_A.jpg","warehouse_A.jpg",
-    "airplane_interior_A_CON.jpg","art_gallery_A_INC.jpg","bakery_A_CON.jpg","ballet_room_A_INC.jpg","bar_A_CON.jpg","bedroom_B_INC.jpg","boat_interior_A_INC.jpg","boxing_ring_A_CON.jpg","building_stairs_B_CON.jpg",
-    "car_interior_A_INC.jpg","casino_B_CON.jpg","childrens_room_A_INC.jpg","church_B_INC.jpg","classroom_A_CON.jpg","clinic_A_CON.jpg","flower_shop_B_CON.jpg","gymnasium_A_CON.jpg","hair_salon_A_CON.jpg","hospital_room_A_INC.jpg",
-    "hotel_lobby_B_CON.jpg","ice_rink_B_CON.jpg","jewelery_A_CON.jpg","kitchen_B_CON.jpg","laboratory_B_INC.jpg","laundry_A_INC.jpg","library_A_INC.jpg","living_room_B_INC.jpg","meeting_room_B_CON.jpg","movie_theater_A_INC.jpg",
-    "museum_B_INC.jpg","office_work_B_INC.jpg","orchard_B_INC.jpg","painting_workshop_B_CON.jpg","parking_lot_B_INC.jpg","prison_A_INC.jpg","public_toilet_A_CON.jpg","restaurant_A_CON.jpg","sewing_workshop_B_CON.jpg","shoe_store_A_CON.jpg",
-    "shopping_center_B_INC.jpg","theater_A_CON.jpg","vault_A_INC.jpg","waiting_room_A_CON.jpg","warehouse_A_INC.jpg","beach_A.jpg","beach_A_CON.jpg","basketball_field_A.jpg","basketball_field_A_INC.jpg",
-    "instrucciones_t.jpg","instrucciones_t_1.jpg","instrucciones_t_2.jpg","instrucciones_t_3.jpg","objeto_1.jpg","objeto_2.jpg",
-    "armchair_SIMILAR.jpg","bikini_SIMILAR.jpg","binoculars_SIMILAR.jpg","bottle_SIMILAR.jpg","boxing_glove_SIMILAR.jpg","clock_SIMILAR.jpg","dice_SIMILAR.jpg","fork_SIMILAR.jpg","grater_SIMILAR.jpg","hairdryer_SIMILAR.jpg","jar_SIMILAR.jpg",
-    "jewelry_box_SIMILAR.jpg","poker_chips_SIMILAR.jpg","racket_SIMILAR.jpg","rolling_pin_SIMILAR.jpg","roman_helmet_SIMILAR.jpg","saw_SIMILAR.jpg","scooter_SIMILAR.jpg","tiara_SIMILAR.jpg","weights_SIMILAR.jpg","whelk_SIMILAR.jpg","whistle_SIMILAR.jpg",
-    "brocha_NUEVO.jpg","calcetas_NUEVO.jpg","casco_bici_NUEVO.jpg","cepillo_NUEVO.jpg","chupon_NUEVO.jpg","cup_NUEVO.jpg","engrapadora_NUEVO.jpg","googles_NUEVO.jpg","gorra_NUEVO.jpg","guante_cocina_NUEVO.jpg","licuadora_NUEVO.jpg","linterna_NUEVO.jpg",
-    "marco_NUEVO.jpg","muñeca_NUEVO.jpg","palita_NUEVO.jpg","pandero_NUEVO.jpg","pinzas_NUEVO.jpg","piña_NUEVO.jpg","silla_NUEVO.jpg","sombrero_NUEVO.jpg","tazon_NUEVO.jpg","vela_NUEVO.jpg",
-    "airplane_belt.jpg","appointment_book.jpg","balloons.jpg","beach_umbrella.jpg","blackboard_eraser.jpg","cactus.jpg","chaplet.jpg","color_palette.jpg","dagger.jpg","emergency_exit_signal.jpg","fire_hydrant.jpg",
-    "hose.jpg","ice_skates.jpg","luggage_carrier_cart.jpg","magic_cube.jpg","scythe.jpg","shoe_box.jpg","soap_dispenser.jpg","stethoscope.jpg","thimble.jpg","tragedy_mask.jpg","trampoline.jpg"];
+    "airplane_interior_A.jpg","art_gallery_A.jpg","art_gallery_A.jpg", "art_gallery_A_INC.jpg", "armchair_SIMILAR.jpg","bikini_SIMILAR.jpg"];
 
-// Se cargan los elementos de "imagenes" antes de iniciar el experimento
+    // Se cargan los elementos de "imagenes" antes de iniciar el experimento
 var preload = {
     type: jsPsychPreload,
     images: imagenes
