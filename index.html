@@ -763,8 +763,8 @@ var extra = {
 
 var despedida= {
   type:jsPsychHtmlButtonResponse,
-  stimulus: "<div style='font-size: 30px;'><p>La tarea ha terminado</p><p><strong>¡Muchas gracias por tu partipación!<p> :) </p></strong></div>",
-  choices: ['SALIR']
+  stimulus: "<div style='font-size: 30px;'><p>La tarea ha terminado, sólo falta guardar los datos de tus respuestas.</p><p><strong>¡Muchas gracias por tu partipación!<p> :) </p></strong></div>",
+  choices: ['GUARDAR DATOS']
 };
 timeline.push(problemas,dificultad,recuerdo,estrategia,extra,despedida);
 
@@ -779,7 +779,7 @@ timeline.push({
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,  
-  stimulus: "<div style='font-size: 20px;'><p>Al presionar cualquier tecla se guardarán los datos.</p><p><strong>Por favor, espera hasta que deje de dar vueltas el círculo para que terminen de cargar y después cierra la página. ¡Gracias y hasta pronto!<p> </p></strong></div>"
+  stimulus: "<div style='font-size: 20px;'><p><strong>Al presionar cualquier tecla se guardarán los datos.</p></strong><p><strong>Por favor, espera hasta que deje de dar vueltas el círculo para que terminen de cargar y después cierra la página.</p></strong><p><strong>¡Gracias y hasta pronto!</p> </p></strong></div>"
 });
     
 const save_data = {
