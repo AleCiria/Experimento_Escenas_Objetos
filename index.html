@@ -336,42 +336,39 @@ timeline.push(cursor_on);
 
 //////////LOOP///////////
 
-var practica_repetida = 0; //HASTA AQUI LLEGUE con este intento, si cambia a 1 lo puedo ver en las respuestas al final pero no permite más de un loop
 
-var final_practica = {
-  type: jsPsychHtmlButtonResponse,
-  stimulus: '<div style="font-size:25px;"><strong>¡Has concluido la práctica!</strong></p><p>Si deseas repetir las instrucciones y la práctica, selecciona repetir, de lo contrario selecciona continuar</div>',
-  choices: ['REPETIR', 'CONTINUAR'],
-  name: 'final_practica',
+// Repetir instrucciones y práctica si el participante lo considera necesario 
+var repetir_practica = {
+  type: jsPsychSurveyMultiChoice,
+  button_label: 'CONTINUAR',
+  name: 'Repetir_practica', 
+  questions: [
+    {prompt: '<p style= "font-size:25px;"><strong> Has finalizado la práctica.</strong></p><p>Si te quedó alguna duda, selecciona la opción de "REPETIR" para volver a leer las intrucciones y realizar de nuevo la práctica.</p><p>Si todo está claro, selecciona "ACTIVIDAD".</p>', options: ["REPETIR", "ACTIVIDAD"], required: true}
+  ]
 };
+timeline.push(repetir_practica);
 
-var practica_loop = {
-  timeline: [instrucciones, inicio_practica, procedimiento_practica, final_practica],
+// Condicional para repetir instrucciones y práctica 
+var repetir_loop = {
+  timeline: [instrucciones, inicio_practica, cursor_off, procedimiento_practica, cursor_on, repetir_practica],
   conditional_function: function() {
     var dat = jsPsych.data.getLastTrialData().values()[0];
-    var answer = dat.response; // Cambio el nombre a 'response'
-    if (answer == '0' && practica_repetida < 3) { // Puedes ajustar el número máximo de repeticiones
-      practica_repetida++;
-      // Agregar el valor de practica_repetida a los datos del último ensayo
-      jsPsych.data.addDataToLastTrial({ 'practica_repetida': practica_repetida });
-      return true; // Continuar repitiendo el bucle
-      } else {
-      return false; // Salir del bucle
+    var answer = dat.response.Q0;
+    if(answer.includes("REPETIR") == true) {
+      return true;
+    } else {
+      return false;
     }
-  }
-};
+  },
+}
+timeline.push(repetir_loop);
 
-timeline.push(final_practica); // Agregar final_practica al timeline
-timeline.push(practica_loop); // Agregar practica_loop al timeline
 
-// Define un bucle conditional_loop para repetir la práctica según sea necesario
-
-// Agrega el bucle conditional_loop al timeline
-//timeline.push(practica_loop);
+//////////INICIO TAREA ///////////
 
 var inicio_tarea ={
   type: jsPsychHtmlKeyboardResponse,
-  stimulus:'<div style="font-size:25px;"><strong>Para comenzar la tarea completa</strong><p>Coloca tus dedos sobre las teclas “V” y “N”, cuando estés list@, ¡presiona cualquiera de ellas para comenzar! :)</strong></div>',
+  stimulus:'<div style="font-size:25px;"><strong>¡Has concluido la práctica!</strong></p><p><strong>Para comenzar la tarea: Coloca tus dedos sobre las teclas “V” y “N”, cuando estés list@, ¡presiona cualquiera de ellas para comenzar! :)</strong></div>',
   choices: ["v","n"],
 };
 timeline.push(inicio_tarea);
@@ -578,40 +575,41 @@ var cursor_on = {
 };
 timeline.push(cursor_on);
 
-//////////LOOP///////////
+//////////LOOP 2///////////
 
-var practica_repetida_2 = 0; //hASTA AQUI LLEGUE con este intento de que se repita las veces que sea la práctica, si cambia a 1 lo puedo ver en las respuestas al final pero no permite más de un loop
-
-var final_practica_2 = {
-  type: jsPsychHtmlButtonResponse,
-  stimulus: '<div style="font-size:22px;"><strong>¡Has concluido la práctica!</strong></p><p>Si deseas repetir las instrucciones y la práctica, selecciona repetir, de lo contrario selecciona continuar</div>',
-  choices: ['repetir', 'continuar'],
-  name: 'final_practica_2'
+// Repetir instrucciones y práctica si el participante lo considera necesario 
+var repetir_practica_2 = {
+  type: jsPsychSurveyMultiChoice,
+  button_label: 'CONTINUAR',
+  name: 'Repetir_practica', 
+  questions: [
+    {prompt: '<p style= "font-size:25px;"><strong> Has finalizado la práctica.</strong></p><p>Si te quedó alguna duda, selecciona la opción de "REPETIR" para volver a leer las intrucciones y realizar de nuevo la práctica.</p><p>Si todo está claro, selecciona "ACTIVIDAD".</p>', options: ["REPETIR", "ACTIVIDAD"], required: true}
+  ]
 };
-    
-var practica_loop_2 = {
-  timeline: [instrucciones_tarea, instrucciones_2, inicio_practica_2, procedimiento_practica_2, final_practica_2],
+timeline.push(repetir_practica_2);
+
+
+// Condicional para repetir instrucciones y práctica 
+var repetir_loop_2 = {
+  timeline: [instrucciones_tarea, instrucciones_2, cursor_off, inicio_practica_2, procedimiento_practica_2, cursor_on, repetir_practica_2],
   conditional_function: function() {
-    var dat = jsPsych.data.getLastTrialData().values()[0];
-    var answer = dat.response; // Cambio el nombre a 'response'
-    if (answer == '0' && practica_repetida_2 < 3) { // Puedes ajustar el número máximo de repeticiones
-      practica_repetida_2++;
-      // Agregar el valor de practica_repetida a los datos del último ensayo
-      jsPsych.data.addDataToLastTrial({ 'practica_repetida_2': practica_repetida_2 });
-      return true; // Continuar repitiendo el bucle
+    var dat_2 = jsPsych.data.getLastTrialData().values()[0];
+    var answer_2 = dat_2.response.Q0;
+    if(answer_2.includes("REPETIR") == true) {
+      return true;
     } else {
-      return false; // Salir del bucle
+      return false;
     }
   },
-};
+}
+timeline.push(repetir_loop_2);
 
-timeline.push(final_practica_2); // Agregar final_practica al timeline
-timeline.push(practica_loop_2); // Agregar practica_loop al timeline
 
+// Informacion inicio tarea de memoria 
 var inicio_tarea_memoria ={
   type: jsPsychHtmlKeyboardResponse,
-  stimulus:'<div style="font-size:25px;"><strong>Para comenzar la tarea completa</strong><p>Coloca tus dedos sobre las teclas “V” "B" y “N” <p>Cuando estés list@, ¡presiona cualquiera de ellas para comenzar! :)</p></strong></div>',
-  choices: ["v","n","b"]
+  stimulus:'<div style="font-size:25px;"><strong>¡Has concluido la práctica!</strong></p><p>Coloca tus dedos sobre las teclas “V” "B" y “N” <p>Cuando estés list@, ¡presiona cualquiera de ellas para comenzar! :)</p></strong></div>',
+  choices: ["v","n","b"],
 };
 timeline.push(inicio_tarea_memoria);
 
