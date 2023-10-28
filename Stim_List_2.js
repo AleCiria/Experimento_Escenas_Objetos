@@ -251,7 +251,7 @@ var Stim_List_2= [
 },
 
   {stimulus: ["public_toilet_A.jpg","public_toilet_A_CON.jpg"],
-   correct_response:"v",
+   correct_response:"n",
    con: "n",
    inc: "v",
    tipo:"1"
@@ -317,5 +317,4 @@ var Stim_List_2= [
 },
 
 ]
-
 
