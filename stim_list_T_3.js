@@ -513,7 +513,7 @@ var stim_list_T_3 = [
    nuevo: "v"
 },
 
-  {stimulus: ["muñeca_NUEVO.jpg"],
+  {stimulus: ["munieca_NUEVO.jpg"],
    tipo: "nuevo",
    contexto:"sin_contexto",
    correct_response: "v",
@@ -549,7 +549,7 @@ var stim_list_T_3 = [
    nuevo: "v"
 },
 
-  {stimulus: ["piña_NUEVO.jpg"],
+  {stimulus: ["pinia_NUEVO.jpg"],
    tipo: "nuevo",
    contexto:"sin_contexto",
    correct_response: "v",
