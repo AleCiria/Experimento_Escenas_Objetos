@@ -1,3 +1,13 @@
+//////////////////////////////////////////////
+///////// Experimento Tesis Rebe /////////////
+//////////////////////////////////////////////
+
+// Claridad del recuerdo = objetos congruentes e incongruentes con el contexto
+// Versión jsPsych 7.3.3
+// Se usa DataPipe (plugin), GitHub, y OSF
+// Fecha 08/10/23
+//////////////////////////////////////////////
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -40,7 +50,6 @@
 // jsPsychCallFunction
 // jsPsychAnimation
 // jsPsychImageKeyboardResponse
-
 // jsPsychImageButtonResponse
 
 
@@ -343,7 +352,7 @@ var repetir_practica = {
   button_label: 'CONTINUAR',
   name: 'Repetir_practica', 
   questions: [
-    {prompt: '<p style= "font-size:25px;"><strong> Has finalizado la práctica.</strong></p><p>Si te quedó alguna duda, selecciona la opción de "REPETIR" para volver a leer las intrucciones y realizar de nuevo la práctica (se podrá repetir una sola vez).</p><p>Si todo está claro, selecciona "ACTIVIDAD".</p>', options: ["REPETIR", "ACTIVIDAD"], required: true}
+    {prompt: '<p style= "font-size:25px;"><strong> Has finalizado la práctica.</strong></p><p>Si te quedó alguna duda, selecciona la opción de "REPETIR" para volver a leer las intrucciones y realizar de nuevo la práctica.</p><p>Si todo está claro, selecciona "ACTIVIDAD".</p>', options: ["REPETIR", "ACTIVIDAD"], required: true}
   ]
 };
 timeline.push(repetir_practica);
@@ -583,7 +592,7 @@ var repetir_practica_2 = {
   button_label: 'CONTINUAR',
   name: 'Repetir_practica', 
   questions: [
-    {prompt: '<p style= "font-size:25px;"><strong> Has finalizado la práctica.</strong></p><p>Si te quedó alguna duda, selecciona la opción de "REPETIR" para volver a leer las intrucciones y realizar de nuevo la práctica (se podrá repetir una sola vez).</p><p>Si todo está claro, selecciona "ACTIVIDAD".</p>', options: ["REPETIR", "ACTIVIDAD"], required: true}
+    {prompt: '<p style= "font-size:25px;"><strong> Has finalizado la práctica.</strong></p><p>Si te quedó alguna duda, selecciona la opción de "REPETIR" para volver a leer las intrucciones y realizar de nuevo la práctica.</p><p>Si todo está claro, selecciona "ACTIVIDAD".</p>', options: ["REPETIR", "ACTIVIDAD"], required: true}
   ]
 };
 timeline.push(repetir_practica_2);
@@ -781,10 +790,6 @@ timeline.push({
   type: jsPsychHtmlKeyboardResponse,  
   stimulus: "<div style='font-size: 20px;'><p><strong>Al presionar cualquier tecla se guardarán los datos.</p></strong><p><strong>Por favor, espera hasta que deje de dar vueltas el círculo para que terminen de cargar y después cierra la página.</p></strong><p><strong>¡Gracias y hasta pronto!</p> </p></strong></div>"
 });
-
-//////////////////////////////////////////////
-///////// GUARDA DATOS ////////////////
-//////////////////////////////////////////////
     
 const save_data = {
   type: jsPsychPipe,
@@ -801,4 +806,3 @@ jsPsych.run(timeline);
 
   </script>
 </html>
-
