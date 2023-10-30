@@ -329,22 +329,14 @@ var fixation = {
   trial_duration: 600
 };
 
-var practica_1 = {
+var practica = {
   type: jsPsychAnimation,
-  stimuli: ["beach_A.jpg", "beach_A_CON.jpg"],
+  stimuli: jsPsych.timelineVariable('stimulus'),
   frame_time: 1500,
   choices: "NO_KEYS",
   render_on_canvas: true
 };
-
-var practica_2 = {
-  type: jsPsychAnimation,
-  stimuli: ["basketball_field_A.jpg", "basketball_field_A_INC.jpg"],
-  frame_time: 1500,
-  choices: "NO_KEYS",
-  render_on_canvas: true
-};
-
+    
 // Definir texto_practica dependiendo de primer_random
 var texto_practica;
 
@@ -359,9 +351,23 @@ var practica_response = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: texto_practica,
   choices: ["v", "n"],
-  trial_duration: 3000
-};
+  trial_duration: 3000,
 
+  data: {
+     task: 'congruencia_p_1',
+     correct_response: jsPsych.timelineVariable('correct_response'),
+     tipo_estimulo: jsPsych.timelineVariable('tipo')
+  },
+  
+on_finish: function(data) {
+    if (jsPsych.pluginAPI.compareKeys(data.response, data.correct_response)) {
+      data.correct = true;
+    } else {
+      data.correct = false;
+    }
+  }
+};
+  
 // Retroalimentación para la respuesta correcta
 var retro_con = {
   type: jsPsychHtmlKeyboardResponse,
