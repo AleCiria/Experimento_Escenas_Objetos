@@ -369,26 +369,38 @@ on_finish: function(data) {
 };
   
 // Retroalimentación para la respuesta correcta
-var retro_con = {
+var feedback_1 = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<div style="font-size:25px;color:green;">Para esta escena la respuesta correcta es <strong><black>CONGRUENTE</strong></black></div>',
-  choices: "NO_KEYS",
-  trial_duration: 2500
-};
-
-var retro_inc = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<div style="font-size:25px;color:green;">Para esta escena la respuesta correcta es <strong><black>INCONGRUENTE</strong></black></div>',
-  choices: "NO_KEYS",
-  trial_duration: 2500
+  trial_duration: 2000,
+  choices:"NO_KEYS",
+  stimulus: function() {
+    var last_trial = jsPsych.data.get().last(1).values()[0];
+    var tipo_estimulo = last_trial.tipo_estimulo;
+    
+    if (tipo_estimulo == "1") {
+      if (last_trial.correct) {
+        return '<div style="font-size:25px;color:green;">¡Correcto! Para esta escena la respuesta es <strong style="color:black;">congruente</strong></div>';
+      } else {
+        return '<div style="font-size:25px;color:red;">Incorrecto, para esta escena la respuesta es <strong style="color:black;">congruente</strong></div>';
+      }
+    } else if (tipo_estimulo == "2") {
+      if (last_trial.correct) {
+        return '<div style="font-size:25px;color:green;">¡Correcto! Para esta escena la respuesta es <strong style="color:black;">incongruente</strong></div>';
+      } else {
+        return '<div style="font-size:25px;color:red;">Incorrecto, para esta escena la respuesta es <strong style="color:black;">incongruente</strong></div>';
+      }
+    }
+  }
 };
 
 // Crear un procedimiento que repita la secuencia de estímulos
 var procedimiento_practica = {
-  timeline: [fixation, practica_1, practica_response, retro_con, fixation, practica_2, practica_response, retro_inc],
+  timeline: [fixation, practica, practica_response, feedback_1],
+  timeline_variables: Stim_List_P,
+  randomize_order: true,
 };
-timeline.push(procedimiento_practica);
 
+timeline.push(procedimiento_practica);
 
 // Agregar cursor de nuevo después de procedimiento_practica
 var cursor_on = {
