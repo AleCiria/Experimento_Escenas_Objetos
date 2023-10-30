@@ -300,6 +300,14 @@ var instrucciones = {
   show_clickable_nav: true,
   allow_keys: false
 };
+
+var inicio_practica = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: '<div style="font-size:25px;"><strong>Coloca tus dedos sobre las teclas “V” y “N”,</p><p>cuando estés list@, presiona cualquiera de ellas para comenzar la práctica :)</p> </strong></div>',
+  choices: ["v","n"]
+};
+timeline.push(instrucciones,inicio_practica);
+
     
 const save_data = {
   type: jsPsychPipe,
