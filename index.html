@@ -301,7 +301,6 @@ var instrucciones = {
   allow_keys: false
 };
 
-
 var inicio_practica = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: '<div style="font-size:25px;"><strong>Coloca tus dedos sobre las teclas “V” y “N”,</p><p>cuando estés list@, presiona cualquiera de ellas para comenzar la práctica :)</p> </strong></div>',
@@ -328,7 +327,6 @@ var fixation = {
   choices: "NO_KEYS",
   trial_duration: 600
 };
-
 
 var practica_1 = {
   type: jsPsychAnimation,
@@ -383,6 +381,7 @@ var procedimiento_practica = {
   timeline: [fixation, practica_1, practica_response, retro_con, fixation, practica_2, practica_response, retro_inc],
 };
 timeline.push(procedimiento_practica);
+
 
 // Agregar cursor de nuevo después de procedimiento_practica
 var cursor_on = {
