@@ -205,6 +205,32 @@ var genero = {
   ],
 };
 
+var nacionalidad = {
+  type: jsPsychSurveyText,
+  button_label:"CONTINUAR",
+  preamble: "<div style='font-size: 20px;'><strong>¿Cuál es tu nacionalidad?</strong></div>",
+  questions: [
+    {
+      prompt: 'Por favor, escribe tu nacionalidad con minúsculas y en femenino (ejemplo: mexicana)',
+      name:'nacionalidad',
+      required: true,
+    },
+  ]
+};
+
+var escolaridad = {
+  type: jsPsychSurveyMultiChoice,
+  button_label:"CONTINUAR",
+  questions: [
+    {
+      prompt: "<div style='font-size: 20px;'><strong>¿Cuál es tu grado de escolaridad?</strong> (último grado cursado o cursando actualmente)?</div>", 
+      name: 'escolaridad', 
+      options: ['PRIMARIA', 'SECUNDARIA', 'BACHILLERATO', 'LICENCIATURA', 'POSGRADO'], 
+      required: true,
+    }
+  ],
+};
+
 var vision = {
   type: jsPsychSurveyMultiChoice,
   button_label:"CONTINUAR",
@@ -218,6 +244,19 @@ var vision = {
   ],
 };
 
+var color = {
+  type: jsPsychSurveyMultiChoice,
+  button_label:"CONTINUAR",
+  questions: [
+    {
+      prompt: "<div style='font-size: 20px;'><p><strong> Hasta tu conocimiento, ¿cuentas con alguna condición que pudiera alterar tu percepción de los colores?</strong></p></div>", 
+      name: 'vision', 
+      options: ['SI', 'NO'], 
+      required: true,
+    }
+  ],
+}; 
+    
 var lateralidad = {
   type: jsPsychSurveyMultiChoice,
   button_label:"CONTINUAR",
@@ -230,7 +269,7 @@ var lateralidad = {
     }
   ],
 };
-timeline.push(edad,genero,vision,lateralidad);
+timeline.push(edad,genero,nacionalidad,escolaridad,vision,color,lateralidad);
 
 
 //////////////////////////////////////////////
