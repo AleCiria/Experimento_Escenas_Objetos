@@ -1,3 +1,5 @@
+////////////////codigo a la izquierdaaaaaaaaaaaaaaa///////////
+
 //////////////////////////////////////////////
 ///////// Experimento Tesis Rebe /////////////
 //////////////////////////////////////////////
@@ -6,7 +8,6 @@
 // Versión jsPsych 7.3.3
 // Se usa DataPipe (plugin), GitHub, y OSF
 // Fecha 08/10/23
-// AYUDA Github Rebe 27-10-23 
 //////////////////////////////////////////////
 
 <!DOCTYPE html>
@@ -29,14 +30,10 @@
     <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
     <script type="text/javascript" src="Stim_List_1.js"></script>
     <script type="text/javascript" src="Stim_List_2.js"></script>
-    <script type="text/javascript" src="stim_list_P_1.js"></script>
-    <script type="text/javascript" src="stim_list_P_2.js"></script>
+    <script type="text/javascript" src="Stim_List_2.js"></script>
     <script type="text/javascript" src="stim_list_T_1.js"></script>
     <script type="text/javascript" src="stim_list_T_2.js"></script>
     <script type="text/javascript" src="stim_list_T_3.js"></script>
-    <script type="text/javascript" src="stim_list_T_P_1.js"></script>
-    <script type="text/javascript" src="stim_list_T_P_2.js"></script>
-    <script type="text/javascript" src="stim_list_T_P_3.js"></script>
     <script language="javascript"></script>  
   </head>
   <body></body>
@@ -56,7 +53,6 @@
 // jsPsychAnimation
 // jsPsychImageKeyboardResponse
 // jsPsychImageButtonResponse
-// 
 
 
 var jsPsych = initJsPsych({});
@@ -88,9 +84,7 @@ timeline.push(aviso);
 
 
 // Se crea la variable "imagenes" para cargarlas antes del experimento
-var instru_imagenes = ["CONSENTIMIENTO.jpg","BIENVENIDA.jpg","INSTRUCCIONES.jpg","teclado_1.jpg","instrucciones_b_1.jpg","instrucciones_b_2.jpg","dedos_1.jpg",
-"instrucciones_t.jpg","instrucciones_t_1.jpg","instrucciones_t_2.jpg","instrucciones_t_3.jpg","instrucciones_teclas_1.jpg","instrucciones_teclas_2.jpg","instrucciones_teclas_3.jpg","ejemplo_1.jpg","ejemplo_2.jpg","ejemplo_3.jpg", "teclado_2.jpg","dedos_2.jpg","feedback_t_a.jpg","feedback_t_s.jpg",
-];
+var instru_imagenes = ["CONSENTIMIENTO.jpg","BIENVENIDA.jpg","INSTRUCCIONES.jpg","INSTRUCCIONES_b_1.jpg","INSTRUCCIONES_b_2.jpg","instrucciones_t.jpg","instrucciones_t_1.jpg","instrucciones_t_2.jpg","instrucciones_t_3.jpg"];
 
     // Se cargan los elementos de "imagenes" antes de iniciar el experimento
 var preload_1 = {
@@ -109,9 +103,7 @@ var escenas_imagenes = ["airplane_interior_A.jpg","art_gallery_A.jpg","bakery_A.
     "car_interior_A_INC.jpg","casino_B_CON.jpg","childrens_room_A_INC.jpg","church_B_INC.jpg","classroom_A_CON.jpg","clinic_A_CON.jpg","flower_shop_B_CON.jpg","gymnasium_A_CON.jpg","hair_salon_A_CON.jpg","hospital_room_A_INC.jpg",
     "hotel_lobby_B_CON.jpg","ice_rink_B_CON.jpg","jewelery_A_CON.jpg","kitchen_B_CON.jpg","laboratory_B_INC.jpg","laundry_A_INC.jpg","library_A_INC.jpg","living_room_B_INC.jpg","meeting_room_B_CON.jpg","movie_theater_A_INC.jpg",
     "museum_B_INC.jpg","office_work_B_INC.jpg","orchard_B_INC.jpg","painting_workshop_B_CON.jpg","parking_lot_B_INC.jpg","prison_A_INC.jpg","public_toilet_A_CON.jpg","restaurant_A_CON.jpg","sewing_workshop_B_CON.jpg","shoe_store_A_CON.jpg",
-    "shopping_center_B_INC.jpg","theater_A_CON.jpg","vault_A_INC.jpg","waiting_room_A_CON.jpg","warehouse_A_INC.jpg",
-    
-    "beach_A.jpg","beach_A_CON.jpg","desert_B.jpg","desert_B_INC.jpg","skate_park_B.jpg","skate_park_B_CON.jpg","cemetery_B.jpg","cemetery_B_INC.jpg"];
+    "shopping_center_B_INC.jpg","theater_A_CON.jpg","vault_A_INC.jpg","waiting_room_A_CON.jpg","warehouse_A_INC.jpg","beach_A.jpg","beach_A_CON.jpg","basketball_field_A.jpg","basketball_field_A_INC.jpg"];
 
     // Se cargan los elementos de "imagenes" antes de iniciar el experimento
 var preload_2 = {
@@ -132,9 +124,7 @@ var objetos_imagenes = ["armchair_SIMILAR.jpg","bikini_SIMILAR.jpg","binoculars_
     "airplane_belt.jpg","appointment_book.jpg","balloons.jpg","beach_umbrella.jpg",
     "blackboard_eraser.jpg","cactus.jpg","chaplet.jpg","color_palette.jpg","dagger.jpg","emergency_exit_signal.jpg","fire_hydrant.jpg",
     "hose.jpg","ice_skates.jpg","luggage_carrier_cart.jpg","magic_cube.jpg","scythe.jpg",
-    "shoe_box.jpg","soap_dispenser.jpg","stethoscope.jpg","thimble.jpg","tragedy_mask.jpg","trampoline.jpg","objeto_1.jpg","objeto_2.jpg",
-  
-    "objeto_1.jpg","objeto_2.jpg","objeto_3.jpg"];
+    "shoe_box.jpg","soap_dispenser.jpg","stethoscope.jpg","thimble.jpg","tragedy_mask.jpg","trampoline.jpg","objeto_1.jpg","objeto_2.jpg"];
 
 // Se cargan los elementos de "imagenes" antes de iniciar el experimento
 var preload_3 = {
@@ -188,7 +178,7 @@ var edad = {
   preamble: "<div style='font-size: 20px;'><strong>¿Cuántos años tienes?</strong></div>",
   questions: [
     {
-      prompt: 'Por favor, escribe tu edad en números (ejemplo: 22)',
+      prompt: 'Por favor, escribe tu edad en números (ejemplo 22)',
       name:'edad',
       required: true,
     },
@@ -208,57 +198,18 @@ var genero = {
   ],
 };
 
-var nacionalidad = {
-  type: jsPsychSurveyText,
-  button_label:"CONTINUAR",
-  preamble: "<div style='font-size: 20px;'><strong>¿Cuál es tu nacionalidad?</strong></div>",
-  questions: [
-    {
-      prompt: 'Por favor, escribe tu nacionalidad con minúsculas y en femenino (ejemplo: mexicana)',
-      name:'nacionalidad',
-      required: true,
-    },
-  ]
-};
-    
-var escolaridad = {
-  type: jsPsychSurveyMultiChoice,
-  button_label:"CONTINUAR",
-  questions: [
-    {
-      prompt: "<div style='font-size: 20px;'><strong>¿Cuál es tu grado de escolaridad?</strong> (último grado cursado o cursando actualmente)?</div>", 
-      name: 'escolaridad', 
-      options: ['PRIMARIA', 'SECUNDARIA', 'BACHILLERATO', 'LICENCIATURA', 'POSGRADO'], 
-      required: true,
-    }
-  ],
-};
-    
 var vision = {
   type: jsPsychSurveyMultiChoice,
   button_label:"CONTINUAR",
   questions: [
     {
-      prompt: "<div style='font-size: 20px;'><p><strong> Indica si tu visión es Normal o Corregida</strong></p><p>Corregida quiere decir que utilizas lentes o lentes de contacto, tuviste alguna operación para corregirla, etc.</p></div>", 
+      prompt: "<div style='font-size: 20px;'><p><strong>Indica si tu visión es Normal o Corregida</strong></p><p>Corregida quiere decir que utilizas lentes o lentes de contacto, tuviste alguna operación para corregirla, etc.</p></div>", 
       name: 'vision', 
       options: ['NORMAL', 'CORREGIDA'], 
       required: true,
     }
   ],
 };
-
-var color = {
-  type: jsPsychSurveyMultiChoice,
-  button_label:"CONTINUAR",
-  questions: [
-    {
-      prompt: "<div style='font-size: 20px;'><p><strong> Hasta tu conocimiento, ¿cuentas con alguna condición que pudiera alterar tu percepción de los colores?</strong></p></div>", 
-      name: 'vision', 
-      options: ['SI', 'NO'], 
-      required: true,
-    }
-  ],
-};    
 
 var lateralidad = {
   type: jsPsychSurveyMultiChoice,
@@ -272,9 +223,7 @@ var lateralidad = {
     }
   ],
 };
-
-    
-timeline.push(edad,genero,nacionalidad,escolaridad,vision,color,lateralidad);
+timeline.push(edad,genero,vision,lateralidad);
 
 
 //////////////////////////////////////////////
@@ -286,22 +235,17 @@ timeline.push(edad,genero,nacionalidad,escolaridad,vision,color,lateralidad);
 var instrucciones_contra;
 
 if (primer_random == 1) {
-  instrucciones_contra = "instrucciones_b_1.jpg";
+  instrucciones_contra = "INSTRUCCIONES_b_1.jpg";
 } else if (primer_random == 2) {
-  instrucciones_contra = "instrucciones_b_2.jpg";
+  instrucciones_contra = "INSTRUCCIONES_b_2.jpg";
 }
-
-
-////////////cargar nuevas imagenes de instrucciones **********////////
 
 var instrucciones = {
   type: jsPsychInstructions,
   pages: [
-    '<img src="INSTRUCCIONES.jpg" style="width: 950px; height: auto;"></img>',
+    '<img src="INSTRUCCIONES.jpg" style="width: 900px; height: auto;"></img>',
     '<br>' + 
-    '<img src="' + "teclado_1.jpg" + '" style="width: 950px; height: auto;"></img>',
-    '<br>' +
-    '<img src="' + instrucciones_contra + '" style="width: 950px; height: auto;"></img>'
+    '<img src="' + instrucciones_contra + '" style="width: 900px; height: auto;"></img>'
   ],
   button_label_next: "CONTINUAR",
   button_label_previous: "ANTERIOR",
@@ -309,7 +253,6 @@ var instrucciones = {
   allow_keys: false
 };
 
-//////// ********** AGREGAAAAAAAAAAR *********** cargar teclado
 
 var inicio_practica = {
   type: jsPsychHtmlKeyboardResponse,
@@ -338,82 +281,58 @@ var fixation = {
   trial_duration: 600
 };
 
-var practica = {
+var practica_1 = {
   type: jsPsychAnimation,
-  stimuli: jsPsych.timelineVariable('stimulus'),
+  stimuli: ["beach_A.jpg", "beach_A_CON.jpg"],
   frame_time: 1500,
   choices: "NO_KEYS",
   render_on_canvas: true
 };
 
-//////// *********AGREGGAAAAAAAR JS*************///////////////
+var practica_2 = {
+  type: jsPsychAnimation,
+  stimuli: ["basketball_field_A.jpg", "basketball_field_A_INC.jpg"],
+  frame_time: 1500,
+  choices: "NO_KEYS",
+  render_on_canvas: true
+};
 
 // Definir texto_practica dependiendo de primer_random
 var texto_practica;
 
 if (primer_random == 1) {
-  texto_practica = "<p><strong>CONGRUENTE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>INCONGRUENTE</strong></p>"; Stim_List_P = Stim_List_P_1;
+  texto_practica = "<p><strong>CONGRUENTE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>INCONGRUENTE</strong></p>"
 } else if (primer_random == 2) {
-  texto_practica = "<p><strong>INCONGRUENTE</strong>&nbsp;&nbsp;&nbsp;<strong>CONGRUENTE</strong></p>" ; Stim_List_P = Stim_List_P_2
+  texto_practica = "<p><strong>INCONGRUENTE</strong>&nbsp;&nbsp;&nbsp;<strong>CONGRUENTE</strong></p>"
 }
-
-////////////AGREGAAAAAAAAAAR ***** JS STIM_LIST_P1
 
 // Mostrar el texto y recoger la respuesta del participante
 var practica_response = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: texto_practica,
   choices: ["v", "n"],
-  trial_duration: 3000,
-  
-  data: {
-     task: 'congruencia_p_1',
-     correct_response: jsPsych.timelineVariable('correct_response'),
-     tipo_estimulo: jsPsych.timelineVariable('tipo')
-  },
-  
-  on_finish: function(data) {
-    if (jsPsych.pluginAPI.compareKeys(data.response, data.correct_response)) {
-      data.correct = true;
-    } else {
-      data.correct = false;
-    }
-  }
+  trial_duration: 3000
 };
 
 // Retroalimentación para la respuesta correcta
-
-var feedback_1 = {
+var retro_con = {
   type: jsPsychHtmlKeyboardResponse,
-  trial_duration: 2000,
-  choices:"NO_KEYS",
-  stimulus: function() {
-    var last_trial = jsPsych.data.get().last(1).values()[0];
-    var tipo_estimulo = last_trial.tipo_estimulo;
-    
-    if (tipo_estimulo == "1") {
-      if (last_trial.correct) {
-        return '<div style="font-size:25px;color:green;">¡Correcto! Para esta escena la respuesta es <strong style="color:black;">congruente</strong></div>';
-      } else {
-        return '<div style="font-size:25px;color:red;">Incorrecto, para esta escena la respuesta es <strong style="color:black;">congruente</strong></div>';
-      }
-    } else if (tipo_estimulo == "2") {
-      if (last_trial.correct) {
-        return '<div style="font-size:25px;color:green;">¡Correcto! Para esta escena la respuesta es <strong style="color:black;">incongruente</strong></div>';
-      } else {
-        return '<div style="font-size:25px;color:red;">Incorrecto, para esta escena la respuesta es <strong style="color:black;">incongruente</strong></div>';
-      }
-    }
-  }
+  stimulus: '<div style="font-size:25px;color:green;">Para esta escena la respuesta correcta es <strong><black>CONGRUENTE</strong></black></div>',
+  choices: "NO_KEYS",
+  trial_duration: 2500
+};
+
+var retro_inc = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: '<div style="font-size:25px;color:green;">Para esta escena la respuesta correcta es <strong><black>INCONGRUENTE</strong></black></div>',
+  choices: "NO_KEYS",
+  trial_duration: 2500
 };
 
 // Crear un procedimiento que repita la secuencia de estímulos
 var procedimiento_practica = {
-  timeline: [fixation, practica, practica_response, feedback_1],
-  timeline_variables: Stim_List_P,
-  randomize_order: true,
+  timeline: [fixation, practica_1, practica_response, retro_con, fixation, practica_2, practica_response, retro_inc],
 };
-
 timeline.push(procedimiento_practica);
 
 
@@ -460,7 +379,7 @@ timeline.push(repetir_loop);
 
 var inicio_tarea ={
   type: jsPsychHtmlKeyboardResponse,
-  stimulus:'<div style="font-size:25px;"><strong>¡Has concluido la práctica!</strong></p><p><strong>Para comenzar la tarea completa,</strong> por favor coloca tus dedos como lo hiciste en la práctica sobre las teclas “V” y “N” <p>Cuando estés list@, ¡presiona cualquiera de ellas para comenzar! :)</p></strong></div>',
+  stimulus:'<div style="font-size:25px;"><strong>¡Has concluido la práctica!</strong></p><p><strong>Para comenzar la tarea: Coloca tus dedos sobre las teclas “V” y “N”, cuando estés list@, ¡presiona cualquiera de ellas para comenzar! :)</strong></div>',
   choices: ["v","n"],
 };
 timeline.push(inicio_tarea);
@@ -482,8 +401,6 @@ if (primer_random == 1) {
 } else if (primer_random == 2) {
   texto_respuestas = "<p><strong>INCONGRUENTE</strong>&nbsp;&nbsp;&nbsp;<strong>CONGRUENTE</strong></p>"; Stim_List= Stim_List_2
 };
-
-//////agregarrrrrrr js actualizadosssss ***** /////
 
 /////////////ANIMATION//////////////
 
@@ -556,36 +473,67 @@ jsPsych.data.addProperties({condicion_fase_2: segundo_random});
 
 ///////instrucciones/////////////
 
-if (segundo_random == 1) {
-  instrucciones_2 = "instrucciones_teclas_1.jpg"; ejemplo = "ejemplo_1.jpg"; texto_respuestas = "<p><strong>ANTIGUO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>SIMILAR</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NUEVO</strong></p>"; stim_list_T_P = stim_list_T_P_1;
-} else if (segundo_random == 2) {
-  instrucciones_2 = "instrucciones_teclas_2.jpg"; ejemplo = "ejemplo_2.jpg"; texto_respuestas = "<p><strong>SIMILAR</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NUEVO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ANTIGUO</strong></p>"; stim_list_T_P = stim_list_T_P_2;
-} else if (segundo_random == 3) {
-  instrucciones_2 = "instrucciones_teclas_3.jpg"; ejemplo = "ejemplo_3.jpg";  texto_respuestas = "<p><strong>NUEVO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ANTIGUO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>SIMILAR</strong></p>"; stim_list_T_P = stim_list_T_P_3;
-}
-
-var instrucciones_tarea = {
-    type:jsPsychInstructions,
+var instrucciones_teclas_1 = {
+    type: jsPsychInstructions,
     pages: [
-    '<p>En la primera sección de la tarea se te pidió decidir a cerca de escenas y objetos.</p><p>En esta segunda sección se te presentarán una serie de imagenes de objetos.</p><p><strong>Tu tarea consiste en decidir de forma rápida y precisa para cada objeto si es: antiguo, similar o nuevo.</strong></p><p><strong>ANTIGUO:</strong> Si la imagen del objeto que observas es <strong>exactamente la misma</strong> a alguna que haya aparecido en la primera sección de la tarea.</p><p><strong>SIMILAR:</strong> Si la imagen del objeto es <strong> similar, más no idéntica </strong> a alguna que se haya presentado, esto quiere decir que puede estar representando el mismo tipo de objeto, pero con alguna(s) característica(s) diferente(s).</p><p><strong>NUEVO:</strong> Si el objeto que observas nunca se había presentado antes en la primera sección de la tarea.</p><p><strong>Presiona "continuar" para ver un ejemplo de la tarea</strong></p>',
-    '<br>' + 
-    '<img src= "instrucciones_t.jpg" style="width: 1000px; height: auto;"></img>' ,
-    '<br>' +
-    '<img src="' + ejemplo + '" style="width: 950px; height: auto;"></img>',
-    '<br>' + 
-    '<img src= "teclado_2.jpg" style="width: 950px; height: auto;"></img>',
-    '<br>' +
-    '<img src="' + instrucciones_2 + '" style="width: 950px; height: auto;"></img>',
-    '<br>' +
-    '<p><div style="font-size:22px;"><strong>Antes de comenzar realizarás una breve práctica para familiarizarte con la tarea.</strong></p><p> Las respuestas están basadas en las imagenes que viste en la práctica de la primera sección. <p><strong> En esta ocasión se te dará retroalimentación sobre la respuesta correcta, sin embargo esto no sucede en la tarea real. </p></strong><p>El objetivo es que identifiques la dinámica de la actividad. <p> Presiona "continuar" para leer la última instrucción antes de la práctica</p>'
-  ],
+    '<pstyle="font-size:23px;"><strong>¿Cómo respondo?</strong></p><p>Cada objeto se te presentará en el centro de la pantalla por un breve periodo de tiempo.</p><p>Debajo del objeto verás las tres posibles respuestas <strong>"Antiguo", "Similar", "Nuevo" en ese orden </strong>, estas opciones corresponderán a las letras en tu teclado <strong> "V", "B" y "N" respectivamente.<strong> No es necesario que memorices el orden de las opciones, </strong> podrás verlas en la parte inferior de la pantalla al contestar.</p><p>Las opciones de respuesta permanecerán, pero la imagen desaparecerá despues de <strong>3 segundos.</strong> No tienes que esperar a que desaparezca la imagen del objeto para contestar. <strong>Procura responder rápido, sin embargo, es importante que lo hagas con la mayor precisión posible.</strong></p>'+ '<br>' + 
+    '<img src="instrucciones_t_1.jpg" style="width: 710px; height: auto;"></img>'
+    ],
     button_label_next: "CONTINUAR",
     button_label_previous: "ANTERIOR",
     show_clickable_nav: true,
     allow_keys: false
 };
 
+var instrucciones_teclas_2 = {
+    type: jsPsychInstructions,
+    pages: [
+    '<pstyle="font-size:23px;"><strong>¿Cómo respondo?</strong></p><p>Cada objeto se te presentará en el centro de la pantalla por un breve periodo de tiempo.</p><p>Debajo del objeto verás las tres posibles respuestas <strong>"Similar", "Nuevo", "Antiguo" en ese orden </strong>, estas opciones corresponderán a las letras en tu teclado <strong> "V", "B" y "N" respectivamente.<strong> No es necesario que memorices el orden de las opciones, </strong> podrás verlas en la parte inferior de la pantalla al contestar. </p><p>Las opciones de respuesta permanecerán, pero la imagen desaparecerá despues de <strong>3 segundos.</strong> No tienes que esperar a que desaparezca la imagen del objeto para contestar. <strong>Procura responder rápido, sin embargo, es importante que lo hagas con la mayor precisión posible.</strong></p>'+ '<br>' + 
+    '<img src="instrucciones_t_2.jpg" style="width: 710px; height: auto;"></img>'
+    ],
+    button_label_next: "CONTINUAR",
+    button_label_previous: "ANTERIOR",
+    show_clickable_nav: true,
+    allow_keys: false
+};
+
+var instrucciones_teclas_3 = {
+    type: jsPsychInstructions,
+    pages: [
+    '<pstyle="font-size:23px;"><strong>¿Cómo respondo?</strong></p><p>Cada objeto se te presentará en el centro de la pantalla por un breve periodo de tiempo.</p><p>Debajo del objeto verás las tres posibles respuestas <strong> "Nuevo", "Antiguo", "Similar" en ese orden </strong>, estas opciones corresponderán a las letras en tu teclado <strong> "V", "B" y "N" respectivamente.<strong> No es necesario que memorices el orden de las opciones, </strong> podrás verlas en la parte inferior de la pantalla al contestar.</p><p> Las opciones de respuesta permanecerán, pero la imagen desaparecerá despues de <strong>3 segundos.</strong> No tienes que esperar a que desaparezca la imagen del objeto para contestar. <strong>Procura responder rápido, sin embargo, es importante que lo hagas con la mayor precisión posible.</strong></p>'+ '<br>' + 
+    '<img src="instrucciones_t_3.jpg" style="width: 710px; height: auto;"></img>'
+    ],
+    button_label_next: "CONTINUAR",
+    button_label_previous: "ANTERIOR",
+    show_clickable_nav: true,
+    allow_keys: false
+};
+
+var instrucciones_tarea = {
+    type:jsPsychInstructions,
+    pages: [
+    '<p>En la primera sección de la tarea se te pidió decidir sobre la congruencia/incongruencia de los objetos en las escenas.</p><p>En esta segunda sección, se te presentarán una serie de imágenes de objetos.</p><p><strong>Tu tarea consiste en decidir de forma rápida y precisa para cada objeto si es: antiguo, similar o nuevo.</strong></p><p><strong>ANTIGUO:</strong> Si la imagen del objeto que observas es <strong>exactamente la misma</strong> a alguna que haya aparecido en la primera sección de la tarea.</p><p><strong>SIMILAR:</strong> Si la imagen del objeto es <strong> similar, más no idéntica </strong> a alguna que se haya presentado, esto quiere decir que puede estar representando el mismo tipo de objeto, pero con alguna(s) característica(s) diferente(s).</p><p><strong>NUEVO:</strong> Si el objeto que observas nunca se había presentado antes en la primera sección de la tarea.</p><p><strong>Presiona "continuar" para ver un ejemplo de la tarea</strong></p>',
+    '<br>' + 
+    '<img src="instrucciones_t.jpg" style="width: 1000px; height: auto;"></img>' ],
+    button_label_next: "CONTINUAR",
+    button_label_previous: "ANTERIOR",
+    show_clickable_nav: true,
+    allow_keys: false
+};
 timeline.push(instrucciones_tarea);
+
+var instrucciones_2;
+var texto_respuestas;
+
+if (segundo_random == 1) {
+  instrucciones_2 = instrucciones_teclas_1; texto_respuestas = "<p><strong>ANTIGUO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>SIMILAR</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NUEVO</strong></p>";
+} else if (segundo_random == 2) {
+  instrucciones_2 = instrucciones_teclas_2; texto_respuestas = "<p><strong>SIMILAR</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NUEVO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ANTIGUO</strong></p>";
+} else if (segundo_random == 3) {
+  instrucciones_2 = instrucciones_teclas_3; texto_respuestas = "<p><strong>NUEVO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ANTIGUO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>SIMILAR</strong></p>";
+};
+
+timeline.push(instrucciones_2);
 
 var cursor_off = {
   type: jsPsychCallFunction,
@@ -598,83 +546,37 @@ timeline.push(cursor_off);
 
 ////inicio de la práctica///////////
 
-////////// AGREGARRRRRR JS ******************/////////
-
 var inicio_practica_2 = {
-  type: jsPsychImageKeyboardResponse,
-  stimulus:"dedos_2.jpg",
-  stimulus_height: 650,
-  maintain_aspect_ratio: true,
-  choices: ["v","n","b"]
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: '<div style="font-size:22px;"><p>Antes de comenzar realizarás una breve práctica para familiarizarte con la tarea.</p><p>No te preocupes por las respuestas, por esta ocasión selecciona la opcion de "nuevo", el objetivo es que identifiques la dinámica de la actividad.</p><p>Coloca tus dedos sobre las teclas “V”, "B" y “N”,</p><strong><p>cuando estés list@, presiona cualquiera de ellas para comenzar la práctica :)</p> </strong></div>',
+  choices: ["v","n","b"],
 };
 timeline.push(inicio_practica_2);
 
-var practica = {
+var objeto_1 = {
   type: jsPsychImageKeyboardResponse,
-  stimulus: jsPsych.timelineVariable("stimulus"),
-  stimulus_duration: 3000,
-  stimulus_height: 550,
+  stimulus: "objeto_1.jpg",
+  stimulus_height: 650,
   maintain_aspect_ratio: true,
-    prompt: '<div style="font-size:20px; text-align: center;">' + texto_respuestas + '</div>',
-    choices: ["V","N","B"],
-  trial_duration: null,
-
-data: {
-     task: 'practica_recuerdo',
-     correct_response: jsPsych.timelineVariable('correct_response'),
-     tipo_estimulo: jsPsych.timelineVariable('tipo')
-  },
-  
-  on_finish: function(data) {
-    if (jsPsych.pluginAPI.compareKeys(data.response, data.correct_response)) {
-      data.correct = true;
-    } else {
-      data.correct = false;
-    }
-  }
+  prompt: '<div style="text-align: center;">' + texto_respuestas + '</div>',
+  choices: ["V","N","B"],
+  trial_duration: 3000
 };
-
-var feedback_2 = {
-  type: jsPsychHtmlKeyboardResponse,
-  trial_duration: 4000,
-  choices:"NO_KEYS",
-  stimulus: function() {
-    var last_trial = jsPsych.data.get().last(1).values()[0];
-    var tipo_estimulo = last_trial.tipo_estimulo;
-    
-    if (tipo_estimulo == "antiguo") {
-      if (last_trial.correct) {
-        return '<div style="font-size:25px;color:green;">¡Correcto! este es un objeto <strong style="color:black;">antiguo</strong> es decir, idéntico a alguno que viste en la primera sección </div>'+
-       '<img src="feedback_t_a.jpg" style="width: 600px; height: auto;">';
-      } else {
-        return '<div style="font-size:25px;color:red;">Incorrecto, este es un objeto <strong style="color:black;">antiguo</strong> es decir, idéntico a alguno que viste en la primera sección </div>'+
-       '<img src="feedback_t_a.jpg" style="width: 600px; height: auto;">';
-      }
-    } else if (tipo_estimulo == "similar") {
-      if (last_trial.correct) {
-        return '<div style="font-size:25px;color:green;">¡Correcto! este es un objeto <strong style="color:black;">similar</strong> es decir, parecido pero no idéntico a alguno que viste en la primera sección </div>'+
-        '<img src="feedback_t_s.jpg" style="width: 500px; height: auto;">';
-      } else {
-        return '<div style="font-size:25px;color:red;">Incorrecto, este es un objeto <strong style="color:black;">similar</strong> es decir, parecido pero no idéntico a alguno que viste en la primera sección </div>'+
-        '<img src="feedback_t_s.jpg" style="width: 500px; height: auto;">';
-      }
-    } else if (tipo_estimulo == "nuevo") {
-      if (last_trial.correct) {
-        return '<div style="font-size:25px;color:green;">¡Correcto! este es un objeto <strong style="color:black;">nuevo</strong> es decir, nunca se presentó en la primera sección </div>'
-      } else {
-        return '<div style="font-size:25px;color:red;">Incorrecto,este es un objeto <strong style="color:black;">nuevo</strong> es decir, nunca se presentó en la primera sección </div>';
-      }
-    }
-  }
+  
+var objeto_2 = {
+  type: jsPsychImageKeyboardResponse,
+  stimulus: "objeto_2.jpg",
+  stimulus_height: 650,
+  maintain_aspect_ratio: true,
+  prompt: '<div style="text-align: center;">' + texto_respuestas + '</div>',
+  choices: ["V","N","B"],
+  trial_duration: 3000
 };
 
 var procedimiento_practica_2 = {
-  timeline:[ fixation, practica, feedback_2],
-  timeline_variables: stim_list_T_P,
-  randomize_order:true
+  timeline: [fixation, objeto_1, fixation, objeto_2],
 };
-
-timeline.push(procedimiento_practica_2);
+timeline.push(procedimiento_practica_2) 
 
 var cursor_on = {
   type: jsPsychCallFunction,
@@ -717,7 +619,7 @@ timeline.push(repetir_loop_2);
 // Informacion inicio tarea de memoria 
 var inicio_tarea_memoria ={
   type: jsPsychHtmlKeyboardResponse,
-  stimulus:'<div style="font-size:25px;"><strong>¡Has concluido la práctica!</p><p>Para comenzar la tarea completa </strong> Por favor coloca tus dedos como lo hiciste en la práctica sobre las teclas “V” "B" y “N” <p>Cuando estés list@, ¡presiona cualquiera de ellas para comenzar! :)</p></strong></div>',
+  stimulus:'<div style="font-size:25px;"><strong>¡Has concluido la práctica!</strong></p><p>Coloca tus dedos sobre las teclas “V” "B" y “N” <p>Cuando estés list@, ¡presiona cualquiera de ellas para comenzar! :)</p></strong></div>',
   choices: ["v","n","b"],
 };
 timeline.push(inicio_tarea_memoria);
@@ -734,8 +636,6 @@ timeline.push(cursor_off);
 ////////////////////////////////////
 /////////INICIO TAREA MEMORIA ///////////
 ////////////////////////////////////
-
-/////////agregar nuevo js************//////////////
 
 var pruebaT={
     type:jsPsychImageKeyboardResponse,
@@ -821,20 +721,6 @@ var problemas = {
   ],
 };
 
-var desempeno = {
-type: jsPsychSurveyMultiChoice,
-  button_label:"CONTINUAR",
-  
-  questions: [
-    {
-      prompt: "<div style='font-size: 20px;'><strong>En general, ¿cómo calificarías tu desempeño en la tarea?</strong></p><p>La respuesta se relaciona con las respuestas correctas que crees haber tenido </p></div>", 
-      name: 'desempeno', 
-      options: ['MUY BUENO','BUENO','REGULAR','MALO','MUY MALO'], 
-      required: true,
-    }
-  ],
-};
-
 var dificultad ={
   type: jsPsychSurveyMultiChoice,
   button_label:"CONTINUAR",
@@ -891,7 +777,7 @@ var despedida= {
   stimulus: "<div style='font-size: 30px;'><p>La tarea ha terminado, sólo falta guardar los datos de tus respuestas.</p><p><strong>¡Muchas gracias por tu partipación!<p> :) </p></strong></div>",
   choices: ['GUARDAR DATOS']
 };
-timeline.push(problemas,desempeno,dificultad,recuerdo,estrategia,extra,despedida);
+timeline.push(problemas,dificultad,recuerdo,estrategia,extra,despedida);
 
 //////////////////////////////////////////////
 ///////// TERMINA EXPERIMENTO ////////////////
@@ -904,7 +790,7 @@ timeline.push({
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,  
-  stimulus: "<div style='font-size: 20px;'><p><strong>Al presionar cualquier tecla se guardarán los datos.</p></strong><p><strong>Por favor, espera hasta que deje de dar vueltas el círculo para que terminen de cargar, cuando la pantalla quede en blanco puedes cerrar la página.</p></strong><p><strong>¡Gracias y hasta pronto!</p> </p></strong></div>"
+  stimulus: "<div style='font-size: 20px;'><p><strong>Al presionar cualquier tecla se guardarán los datos.</p></strong><p><strong>Por favor, espera hasta que deje de dar vueltas el círculo para que terminen de cargar y después cierra la página.</p></strong><p><strong>¡Gracias y hasta pronto!</p> </p></strong></div>"
 });
     
 const save_data = {
