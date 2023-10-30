@@ -329,21 +329,30 @@ var fixation = {
   trial_duration: 600
 };
 
-var practica = {
+
+var practica_1 = {
   type: jsPsychAnimation,
-  stimuli: jsPsych.timelineVariable('stimulus'),
+  stimuli: ["beach_A.jpg", "beach_A_CON.jpg"],
   frame_time: 1500,
   choices: "NO_KEYS",
   render_on_canvas: true
 };
-    
+
+var practica_2 = {
+  type: jsPsychAnimation,
+  stimuli: ["basketball_field_A.jpg", "basketball_field_A_INC.jpg"],
+  frame_time: 1500,
+  choices: "NO_KEYS",
+  render_on_canvas: true
+};
+
 // Definir texto_practica dependiendo de primer_random
 var texto_practica;
 
 if (primer_random == 1) {
-  texto_practica = "<p><strong>CONGRUENTE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>INCONGRUENTE</strong></p>"; Stim_List_P = Stim_List_P_1;
+  texto_practica = "<p><strong>CONGRUENTE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>INCONGRUENTE</strong></p>"
 } else if (primer_random == 2) {
-  texto_practica = "<p><strong>INCONGRUENTE</strong>&nbsp;&nbsp;&nbsp;<strong>CONGRUENTE</strong></p>"; Stim_List_P = Stim_List_P_2
+  texto_practica = "<p><strong>INCONGRUENTE</strong>&nbsp;&nbsp;&nbsp;<strong>CONGRUENTE</strong></p>"
 }
 
 // Mostrar el texto y recoger la respuesta del participante
@@ -351,55 +360,28 @@ var practica_response = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: texto_practica,
   choices: ["v", "n"],
-  trial_duration: 3000,
-
-  data: {
-     task: 'congruencia_p_1',
-     correct_response: jsPsych.timelineVariable('correct_response'),
-     tipo_estimulo: jsPsych.timelineVariable('tipo')
-  },
-  
-on_finish: function(data) {
-    if (jsPsych.pluginAPI.compareKeys(data.response, data.correct_response)) {
-      data.correct = true;
-    } else {
-      data.correct = false;
-    }
-  }
+  trial_duration: 3000
 };
-  
+
 // Retroalimentación para la respuesta correcta
-var feedback_1 = {
+var retro_con = {
   type: jsPsychHtmlKeyboardResponse,
-  trial_duration: 2000,
-  choices:"NO_KEYS",
-  stimulus: function() {
-    var last_trial = jsPsych.data.get().last(1).values()[0];
-    var tipo_estimulo = last_trial.tipo_estimulo;
-    
-    if (tipo_estimulo == "1") {
-      if (last_trial.correct) {
-        return '<div style="font-size:25px;color:green;">¡Correcto! Para esta escena la respuesta es <strong style="color:black;">congruente</strong></div>';
-      } else {
-        return '<div style="font-size:25px;color:red;">Incorrecto, para esta escena la respuesta es <strong style="color:black;">congruente</strong></div>';
-      }
-    } else if (tipo_estimulo == "2") {
-      if (last_trial.correct) {
-        return '<div style="font-size:25px;color:green;">¡Correcto! Para esta escena la respuesta es <strong style="color:black;">incongruente</strong></div>';
-      } else {
-        return '<div style="font-size:25px;color:red;">Incorrecto, para esta escena la respuesta es <strong style="color:black;">incongruente</strong></div>';
-      }
-    }
-  }
+  stimulus: '<div style="font-size:25px;color:green;">Para esta escena la respuesta correcta es <strong><black>CONGRUENTE</strong></black></div>',
+  choices: "NO_KEYS",
+  trial_duration: 2500
+};
+
+var retro_inc = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: '<div style="font-size:25px;color:green;">Para esta escena la respuesta correcta es <strong><black>INCONGRUENTE</strong></black></div>',
+  choices: "NO_KEYS",
+  trial_duration: 2500
 };
 
 // Crear un procedimiento que repita la secuencia de estímulos
 var procedimiento_practica = {
-  timeline: [fixation, practica, practica_response, feedback_1],
-  timeline_variables: Stim_List_P,
-  randomize_order: true,
+  timeline: [fixation, practica_1, practica_response, retro_con, fixation, practica_2, practica_response, retro_inc],
 };
-
 timeline.push(procedimiento_practica);
 
 // Agregar cursor de nuevo después de procedimiento_practica
