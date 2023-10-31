@@ -345,28 +345,6 @@ if (primer_random == 1) {
   texto_practica = "<p><strong>INCONGRUENTE</strong>&nbsp;&nbsp;&nbsp;<strong>CONGRUENTE</strong></p>" ; Stim_List_P = Stim_List_P_2
 }
 
-// Mostrar el texto y recoger la respuesta del participante
-var practica_response = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: texto_practica,
-  choices: ["v", "n"],
-  trial_duration: 3000,
-  
-  data: {
-     task: 'congruencia_p_1',
-     correct_response: jsPsych.timelineVariable('correct_response'),
-     tipo_estimulo: jsPsych.timelineVariable('tipo')
-  },
-  
-  on_finish: function(data) {
-    if (jsPsych.pluginAPI.compareKeys(data.response, data.correct_response)) {
-      data.correct = true;
-    } else {
-      data.correct = false;
-    }
-  }
-};
-
 const save_data = {
   type: jsPsychPipe,
   action: "save",
