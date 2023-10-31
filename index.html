@@ -328,23 +328,6 @@ var fixation = {
   trial_duration: 600
 };
 
-var practica = {
-  type: jsPsychAnimation,
-  stimuli: jsPsych.timelineVariable('stimulus'),
-  frame_time: 1500,
-  choices: "NO_KEYS",
-  render_on_canvas: true
-};
-    
-// Definir texto_practica dependiendo de primer_random
-var texto_practica;
-
-if (primer_random == 1) {
-  texto_practica = "<p><strong>CONGRUENTE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>INCONGRUENTE</strong></p>"; Stim_List_P = Stim_List_P_1;
-} else if (primer_random == 2) {
-  texto_practica = "<p><strong>INCONGRUENTE</strong>&nbsp;&nbsp;&nbsp;<strong>CONGRUENTE</strong></p>" ; Stim_List_P = Stim_List_P_2
-}
-
 const save_data = {
   type: jsPsychPipe,
   action: "save",
