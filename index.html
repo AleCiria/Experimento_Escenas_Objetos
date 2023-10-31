@@ -308,7 +308,65 @@ var inicio_practica = {
 };
 timeline.push(instrucciones,inicio_practica);
 
+
+//////Estimulos de práctica con retroalimentación///////////
+
+//Quitar cursor utilizando un estilo css cargado como "no_mouse.css"
+var cursor_off= {
+  type: jsPsychCallFunction,
+  func: function(){
+    document.body.style.cursor = "none";
+  }
+};
+timeline.push(cursor_off);
+
+// Cruz de fijación
+var fixation = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: '<div style="font-size:80px;color:red;">+</div>',
+  choices: "NO_KEYS",
+  trial_duration: 600
+};
+
+var practica = {
+  type: jsPsychAnimation,
+  stimuli: jsPsych.timelineVariable('stimulus'),
+  frame_time: 1500,
+  choices: "NO_KEYS",
+  render_on_canvas: true
+};
     
+// Definir texto_practica dependiendo de primer_random
+var texto_practica;
+
+if (primer_random == 1) {
+  texto_practica = "<p><strong>CONGRUENTE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>INCONGRUENTE</strong></p>"; Stim_List_P = Stim_List_P_1;
+} else if (primer_random == 2) {
+  texto_practica = "<p><strong>INCONGRUENTE</strong>&nbsp;&nbsp;&nbsp;<strong>CONGRUENTE</strong></p>" ; Stim_List_P = Stim_List_P_2
+}
+
+// Mostrar el texto y recoger la respuesta del participante
+var practica_response = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: texto_practica,
+  choices: ["v", "n"],
+  trial_duration: 3000,
+  
+  data: {
+     task: 'congruencia_p_1',
+     correct_response: jsPsych.timelineVariable('correct_response'),
+     tipo_estimulo: jsPsych.timelineVariable('tipo')
+  },
+  
+  on_finish: function(data) {
+    if (jsPsych.pluginAPI.compareKeys(data.response, data.correct_response)) {
+      data.correct = true;
+    } else {
+      data.correct = false;
+    }
+  }
+};
+
 const save_data = {
   type: jsPsychPipe,
   action: "save",
