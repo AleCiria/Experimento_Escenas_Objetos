@@ -19,9 +19,9 @@ var stim_list_T_P_2 = [
 },
 
  {stimulus: ["objeto_3.jpg"],
-   tipo:"nuevo",
+   tipo:"antiguo",
    contexto:"incongruente",
-   correct_response: "b",
+   correct_response: "n",
    antiguo: "n",
    similar:  "v",
    nuevo: "b"
