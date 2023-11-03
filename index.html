@@ -649,6 +649,59 @@ var procedimiento_practica_2 = {
 
 timeline.push(procedimiento_practica_2);
 
+var cursor_on = {
+  type: jsPsychCallFunction,
+  func: function(){
+    document.body.style.cursor = "auto";
+  }
+};
+timeline.push(cursor_on);
+
+//////////LOOP 2///////////
+
+// Repetir instrucciones y práctica si el participante lo considera necesario 
+var repetir_practica_2 = {
+  type: jsPsychSurveyMultiChoice,
+  button_label: 'CONTINUAR',
+  name: 'Repetir_practica', 
+  questions: [
+    {prompt: '<p style= "font-size:25px;"><strong> Has finalizado la práctica.</strong></p><p>Si te quedó alguna duda, selecciona la opción de "REPETIR" para volver a leer las intrucciones y realizar de nuevo la práctica.</p><p>Si todo está claro, selecciona "ACTIVIDAD".</p>', options: ["REPETIR", "ACTIVIDAD"], required: true}
+  ]
+};
+timeline.push(repetir_practica_2);
+
+// Condicional para repetir instrucciones y práctica 
+var repetir_loop_2 = {
+  timeline: [instrucciones_tarea, instrucciones_2, cursor_off, inicio_practica_2, procedimiento_practica_2, cursor_on, repetir_practica_2],
+  conditional_function: function() {
+    var dat_2 = jsPsych.data.getLastTrialData().values()[0];
+    var answer_2 = dat_2.response.Q0;
+    if(answer_2.includes("REPETIR") == true) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+}
+timeline.push(repetir_loop_2);
+
+// Informacion inicio tarea de memoria 
+var inicio_tarea_memoria ={
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus:'<div style="font-size:25px;"><strong>¡Has concluido la práctica!</p><p>Para comenzar la tarea completa </strong> Por favor coloca tus dedos como lo hiciste en la práctica sobre las teclas “V” "B" y “N” <p>Cuando estés list@, ¡presiona cualquiera de ellas para comenzar! :)</p></strong></div>',
+  choices: ["v","n","b"],
+};
+timeline.push(inicio_tarea_memoria);
+
+//Quitar cursor utilizando un estilo css cargado como "no_mouse.css"
+var cursor_off = {
+  type: jsPsychCallFunction,
+  func: function(){
+    document.body.style.cursor = "none";
+  }
+};
+timeline.push(cursor_off);
+
 const save_data = {
   type: jsPsychPipe,
   action: "save",
