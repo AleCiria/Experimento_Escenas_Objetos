@@ -499,7 +499,71 @@ var procedimiento = {
   timeline_variables: Stim_List,
   randomize_order: true,
 };
-timeline.push(procedimiento);
+//timeline.push(procedimiento);
+
+//////////FIN EXPO////////////
+
+//Agregar cursor de nuevo
+var cursor_on = {
+  type: jsPsychCallFunction,
+  func: function(){
+    document.body.style.cursor = "auto";
+  }
+};
+timeline.push(cursor_on);
+    
+//Conclusion_1 
+//se le indica al participante que terminó la fase de prueba
+var conclusion_1 = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: '<p style="font-size:30px;"><strong>¡Has concluido la primera sección de la tarea!</strong><p>Para continuar, por favor presiona el botón</p>',
+  choices: ['CONTINUAR']
+};
+timeline.push(conclusion_1)
+
+///////////////////////////////////////////////////////
+///////INICIO SEGUNDA SECCION TAREA DE MEMORIA/////////
+///////////////////////////////////////////////////////
+
+// Seleccionar una condición aleatoria (segundo_random) para 3 opciones 
+
+var segundo_random = jsPsych.randomization.sampleWithoutReplacement([1, 2, 3], 1)[0];
+
+jsPsych.data.addProperties({condicion_fase_2: segundo_random});
+
+///////instrucciones/////////////
+
+if (segundo_random == 1) {
+  instrucciones_2 = "instrucciones_teclas_1.jpg"; ejemplo = "ejemplo_1.jpg"; texto_respuestas = "<p><strong>ANTIGUO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>SIMILAR</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NUEVO</strong></p>"; stim_list_T_P = stim_list_T_P_1;
+} else if (segundo_random == 2) {
+  instrucciones_2 = "instrucciones_teclas_2.jpg"; ejemplo = "ejemplo_2.jpg"; texto_respuestas = "<p><strong>SIMILAR</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NUEVO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ANTIGUO</strong></p>"; stim_list_T_P = stim_list_T_P_2;
+} else if (segundo_random == 3) {
+  instrucciones_2 = "instrucciones_teclas_3.jpg"; ejemplo = "ejemplo_3.jpg";  texto_respuestas = "<p><strong>NUEVO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ANTIGUO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>SIMILAR</strong></p>"; stim_list_T_P = stim_list_T_P_3;
+}
+
+var instrucciones_tarea = {
+    type:jsPsychInstructions,
+    pages: [
+    '<p>En la primera sección de la tarea se te pidió decidir a cerca de escenas y objetos.</p><p>En esta segunda sección se te presentarán una serie de imagenes de objetos.</p><p><strong>Tu tarea consiste en decidir de forma rápida y precisa para cada objeto si es: antiguo, similar o nuevo.</strong></p><p><strong>ANTIGUO:</strong> Si la imagen del objeto que observas es <strong>exactamente la misma</strong> a alguna que haya aparecido en la primera sección de la tarea.</p><p><strong>SIMILAR:</strong> Si la imagen del objeto es <strong> similar, más no idéntica </strong> a alguna que se haya presentado, esto quiere decir que puede estar representando el mismo tipo de objeto, pero con alguna(s) característica(s) diferente(s).</p><p><strong>NUEVO:</strong> Si el objeto que observas nunca se había presentado antes en la primera sección de la tarea.</p><p><strong>Presiona "continuar" para ver un ejemplo de la tarea</strong></p>',
+    '<br>' + 
+    '<img src= "instrucciones_t.jpg" style="width: 1000px; height: auto;"></img>' ,
+    '<br>' +
+    '<img src="' + ejemplo + '" style="width: 950px; height: auto;"></img>',
+    '<br>' + 
+    '<img src= "teclado_2.jpg" style="width: 950px; height: auto;"></img>',
+    '<br>' +
+    '<img src="' + instrucciones_2 + '" style="width: 950px; height: auto;"></img>',
+    '<br>' +
+    '<p><div style="font-size:22px;"><strong>Antes de comenzar realizarás una breve práctica para familiarizarte con la tarea.</strong></p><p> Las respuestas están basadas en las imagenes que viste en la práctica de la primera sección. <p><strong> En esta ocasión se te dará retroalimentación sobre la respuesta correcta, sin embargo esto no sucede en la tarea real. </p></strong><p>El objetivo es que identifiques la dinámica de la actividad. <p> Presiona "continuar" para leer la última instrucción antes de la práctica</p>'
+  ],
+    button_label_next: "CONTINUAR",
+    button_label_previous: "ANTERIOR",
+    show_clickable_nav: true,
+    allow_keys: false
+};
+
+timeline.push(instrucciones_tarea);
+
 
 const save_data = {
   type: jsPsychPipe,
