@@ -337,18 +337,9 @@ var fixation = {
   trial_duration: 600
 };
 
-var practica = {
-  type: jsPsychAnimation,
-  stimuli: jsPsych.timelineVariable('stimulus'),
-  frame_time: 1500,
-  choices: "NO_KEYS",
-  render_on_canvas: true
-};
-
 // Crear un procedimiento que repita la secuencia de estímulos
 var procedimiento_practica = {
-  timeline: [fixation, practica],
-  timeline_variables: Stim_List_P,
+  timeline: [fixation],
   randomize_order: true,
 };
 
