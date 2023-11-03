@@ -345,9 +345,32 @@ var practica = {
   render_on_canvas: true
 };
 
+// Mostrar el texto y recoger la respuesta del participante
+var practica_response = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: texto_practica,
+  choices: ["v", "n"],
+  trial_duration: 3000,
+  
+  data: {
+     task: 'congruencia_p_1',
+     correct_response: jsPsych.timelineVariable('correct_response'),
+     tipo_estimulo: jsPsych.timelineVariable('tipo')
+  },
+  
+  on_finish: function(data) {
+    if (jsPsych.pluginAPI.compareKeys(data.response, data.correct_response)) {
+      data.correct = true;
+    } else {
+      data.correct = false;
+    }
+  }
+};
+
+
 // Crear un procedimiento que repita la secuencia de estímulos
 var procedimiento_practica = {
-  timeline: [fixation, practica],
+  timeline: [fixation, practica, practica_response],
   timeline_variables: Stim_List_P,
   randomize_order: true,
 };
