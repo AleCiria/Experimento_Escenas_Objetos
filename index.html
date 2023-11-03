@@ -564,6 +564,90 @@ var instrucciones_tarea = {
 
 timeline.push(instrucciones_tarea);
 
+var cursor_off = {
+  type: jsPsychCallFunction,
+  func: function(){
+    document.body.style.cursor = "none";
+  }
+};
+timeline.push(cursor_off);
+
+////inicio de la práctica///////////
+var inicio_practica_2 = {
+  type: jsPsychImageKeyboardResponse,
+  stimulus:"dedos_2.jpg",
+  stimulus_height: 650,
+  maintain_aspect_ratio: true,
+  choices: ["v","n","b"]
+};
+timeline.push(inicio_practica_2);
+
+var practica_2 = {
+  type: jsPsychImageKeyboardResponse,
+  stimulus: jsPsych.timelineVariable("stimulus"),
+  stimulus_duration: 3000,
+  stimulus_height: 550,
+  maintain_aspect_ratio: true,
+    prompt: '<div style="font-size:20px; text-align: center;">' + texto_respuestas + '</div>',
+    choices: ["V","N","B"],
+  trial_duration: null,
+
+data: {
+     task: 'practica_recuerdo',
+     correct_response: jsPsych.timelineVariable('correct_response'),
+     tipo_estimulo: jsPsych.timelineVariable('tipo')
+  },
+  
+  on_finish: function(data) {
+    if (jsPsych.pluginAPI.compareKeys(data.response, data.correct_response)) {
+      data.correct = true;
+    } else {
+      data.correct = false;
+    }
+  }
+};
+
+var feedback_2 = {
+  type: jsPsychHtmlKeyboardResponse,
+  trial_duration: 4000,
+  choices:"NO_KEYS",
+  stimulus: function() {
+    var last_trial = jsPsych.data.get().last(1).values()[0];
+    var tipo_estimulo = last_trial.tipo_estimulo;
+    
+    if (tipo_estimulo == "antiguo") {
+      if (last_trial.correct) {
+        return '<div style="font-size:25px;color:green;">¡Correcto! este es un objeto <strong style="color:black;">antiguo</strong> es decir, idéntico a alguno que viste en la primera sección </div>'+
+       '<img src="feedback_t_a.jpg" style="width: 600px; height: auto;">';
+      } else {
+        return '<div style="font-size:25px;color:red;">Incorrecto, este es un objeto <strong style="color:black;">antiguo</strong> es decir, idéntico a alguno que viste en la primera sección </div>'+
+       '<img src="feedback_t_a.jpg" style="width: 600px; height: auto;">';
+      }
+    } else if (tipo_estimulo == "similar") {
+      if (last_trial.correct) {
+        return '<div style="font-size:25px;color:green;">¡Correcto! este es un objeto <strong style="color:black;">similar</strong> es decir, parecido pero no idéntico a alguno que viste en la primera sección </div>'+
+        '<img src="feedback_t_s.jpg" style="width: 500px; height: auto;">';
+      } else {
+        return '<div style="font-size:25px;color:red;">Incorrecto, este es un objeto <strong style="color:black;">similar</strong> es decir, parecido pero no idéntico a alguno que viste en la primera sección </div>'+
+        '<img src="feedback_t_s.jpg" style="width: 500px; height: auto;">';
+      }
+    } else if (tipo_estimulo == "nuevo") {
+      if (last_trial.correct) {
+        return '<div style="font-size:25px;color:green;">¡Correcto! este es un objeto <strong style="color:black;">nuevo</strong> es decir, nunca se presentó en la primera sección </div>'
+      } else {
+        return '<div style="font-size:25px;color:red;">Incorrecto,este es un objeto <strong style="color:black;">nuevo</strong> es decir, nunca se presentó en la primera sección </div>';
+      }
+    }
+  }
+};
+
+var procedimiento_practica_2 = {
+  timeline:[ fixation, practica_2, feedback_2],
+  timeline_variables: stim_list_T_P,
+  randomize_order:true
+};
+
+timeline.push(procedimiento_practica_2);
 
 const save_data = {
   type: jsPsychPipe,
