@@ -302,8 +302,10 @@ var instrucciones = {
 };
 
 var inicio_practica = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<div style="font-size:25px;"><strong>Coloca tus dedos sobre las teclas “V” y “N”,</p><p>cuando estés list@, presiona cualquiera de ellas para comenzar la práctica :)</p> </strong></div>',
+  type: jsPsychImageKeyboardResponse,
+  stimulus: "dedos_1.jpg",
+  stimulus_height: 600,
+  maintain_aspect_ratio: true,
   choices: ["v","n"]
 };
 timeline.push(instrucciones,inicio_practica);
@@ -410,6 +412,19 @@ var cursor_on = {
   }
 };
 timeline.push(cursor_on);
+
+//////////LOOP///////////
+    
+// Repetir instrucciones y práctica si el participante lo considera necesario 
+var repetir_practica = {
+  type: jsPsychSurveyMultiChoice,
+  button_label: 'CONTINUAR',
+  name: 'Repetir_practica', 
+  questions: [
+    {prompt: '<p style= "font-size:25px;"><strong> Has finalizado la práctica.</strong></p><p>Si te quedó alguna duda, selecciona la opción de "REPETIR" para volver a leer las intrucciones y realizar de nuevo la práctica.</p><p>Si todo está claro, selecciona "ACTIVIDAD".</p>', options: ["REPETIR", "ACTIVIDAD"], required: true}
+  ]
+};
+timeline.push(repetir_practica);
 
 const save_data = {
   type: jsPsychPipe,
