@@ -343,6 +343,8 @@ var procedimiento_practica = {
   randomize_order: true,
 };
 
+timeline.push(procedimiento_practica);
+
 const save_data = {
   type: jsPsychPipe,
   action: "save",
@@ -350,7 +352,7 @@ const save_data = {
   filename: `${subject_id}.csv`,
   data_string: ()=>jsPsych.data.get().csv()
 };
-timeline.push(save_data);
+//timeline.push(save_data);
 
 jsPsych.run(timeline);
 
