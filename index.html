@@ -426,6 +426,38 @@ var repetir_practica = {
 };
 timeline.push(repetir_practica);
 
+// Condicional para repetir instrucciones y práctica 
+var repetir_loop = {
+  timeline: [instrucciones, inicio_practica, cursor_off, procedimiento_practica, cursor_on, repetir_practica],
+  conditional_function: function() {
+    var dat = jsPsych.data.getLastTrialData().values()[0];
+    var answer = dat.response.Q0;
+    if(answer.includes("REPETIR") == true) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+}
+timeline.push(repetir_loop);
+
+//////////INICIO TAREA ///////////
+
+var inicio_tarea ={
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus:'<div style="font-size:25px;"><strong>¡Has concluido la práctica!</strong></p><p><strong>Para comenzar la tarea completa,</strong> por favor coloca tus dedos como lo hiciste en la práctica sobre las teclas “V” y “N” <p>Cuando estés list@, ¡presiona cualquiera de ellas para comenzar! :)</p></strong></div>',
+  choices: ["v","n"],
+};
+timeline.push(inicio_tarea);
+
+var cursor_off = {
+  type: jsPsychCallFunction,
+  func: function(){
+    document.body.style.cursor = "none";
+  }
+};
+timeline.push(cursor_off);
+
 const save_data = {
   type: jsPsychPipe,
   action: "save",
