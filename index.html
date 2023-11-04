@@ -85,3 +85,24 @@ var aviso = {
 };
 timeline.push(aviso);
 
+
+timeline.push({
+  type: jsPsychHtmlKeyboardResponse,  
+ stimulus: "<div style='font-size: 20px;'><p><strong>Al presionar cualquier tecla se guardarán los datos.</p></strong><p><strong>Por favor, espera hasta que deje de dar vueltas el círculo para que terminen de cargar, cuando la pantalla quede en blanco puedes cerrar la página.</p></strong><p><strong>¡Gracias y hasta pronto!</p> </p></strong></div>"
+});
+    
+const save_data = {
+  type: jsPsychPipe,
+  action: "save",
+  experiment_id: "Uh1IVajIV2t7",
+  filename: `${subject_id}.csv`,
+  data_string: ()=>jsPsych.data.get().csv()
+};
+timeline.push(save_data);
+
+jsPsych.run(timeline);
+
+  </script>
+</html>
+
+
