@@ -706,47 +706,6 @@ timeline.push(cursor_off);
 /////////INICIO TAREA MEMORIA ///////////
 ////////////////////////////////////
 
-var pruebaT={
-    type:jsPsychImageKeyboardResponse,
-    stimulus:jsPsych.timelineVariable("stimulus"),
-    stimulus_height: 500,
-    stimulus_duration: 3000,
-    maintain_aspect_ratio: true,
-    prompt: '<div style="text-align: center;">' + texto_respuestas + '</div>',
-    choices: ["V","N","B"],
-    save_trial_parameters: {
-    stimulus: true,
-    prompt: true //agregué el promt para ver el orden de presentación aunque lo conserva la ondición también
-    //choices: true, //No necesito guardar las choices porque son siempre las mismas no tiene que ver con el orden 
-      },
-    data: { //se establecen los datos que se quieren registrar de la variable ensayo, respuesta del participante, cuál era la respuesta correcta, etc)
-     task: 'response',
-     tipo: jsPsych.timelineVariable('tipo'),
-     contexto: jsPsych.timelineVariable('contexto'),
-     correct_response: jsPsych.timelineVariable('correct_response'),
-    },
-    on_finish: function(data){ //al finalizar cada ensayo mediante este pluginAPI se compara la respuesta asignada a 'data' que provienen de lo almacenado en task: 'response', con la respuesta corecta correct_response y se almacena en la variable data.correct
-      data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
-      data.antiguo = jsPsych.pluginAPI.compareKeys(data.response, jsPsych.timelineVariable('antiguo'));
-      data.similar = jsPsych.pluginAPI.compareKeys(data.response, jsPsych.timelineVariable('similar'));
-      data.nuevo = jsPsych.pluginAPI.compareKeys(data.response, jsPsych.timelineVariable('nuevo'));
-    }
-  }; 
-
-var cursor_off = {
-  type: jsPsychCallFunction,
-  func: function(){
-    document.body.style.cursor = "none";
-  }
-};
-timeline.push(cursor_off);
-
-var procedimiento_2= {
-    timeline:[ fixation, pruebaT],
-    randomize_order:true
-};
-
-jsPsych.run(procedimiento_2);
 
 const save_data = {
   type: jsPsychPipe,
