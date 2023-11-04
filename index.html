@@ -764,7 +764,104 @@ var cursor_on= {
 };
 timeline.push(cursor_on);
 
+/////////////////////////////////
+////////Final y preguntas////////
+/////////////////////////////////
 
+
+var conclusion_2 = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: '<p style="font-size:30px"><strong>¡Gracias por tus respuestas!</strong></p><p>Para finalizar, por favor responde algunas preguntas acerca de tu experiencia en esta tarea</p>',
+  choices: ['CONTINUAR']
+};
+
+timeline.push(conclusion_2);
+
+var problemas = {
+  type: jsPsychSurveyMultiChoice,
+  button_label:"CONTINUAR",
+  questions: [
+    {
+      prompt: "<div style='font-size: 20px;'><strong>¿Tuviste algún contratiempo (por ejemplo, problemas con tu computadora) que pudiera haber afectado tus respuestas?</strong></div>", 
+      name: 'problemas', 
+      options: ['SI', 'NO'], 
+      required: true,
+    }
+  ],
+};
+
+var dificultad ={
+  type: jsPsychSurveyMultiChoice,
+  button_label:"CONTINUAR",
+  questions: [
+    {
+      prompt: "<div style='font-size: 20px;'><strong>En general, ¿la dificultad de esta tarea te pareció: fácil, media, o difícil?</strong></div>", 
+      name: 'dificultad', 
+      options: ['FACIL', 'MEDIA', 'DIFICIL'], 
+      required: true,
+    }
+  ],
+};
+
+var recuerdo = {
+  type:jsPsychSurveyText,
+  button_label:"CONTINUAR",
+  name: 'recuerdo',
+  preamble: "<div style='font-size: 20px;'><strong>¿Consideras que te fue más sencillo recordar ciertos objetos en comparación con otros?</strong></div>",
+  questions: [
+    {prompt: '<p>Si la respuesta es afirmativa escribe "SI" y por favor describe cuáles objetos y por qué crees que fueron más sencillos de recordar</p> <p> si la respuesta es negativa solo escribe "NO" </p> ',
+    name: 'recuerdo', 
+    required: true,
+    },
+  ]
+};
+  
+var estrategia = {
+  type:jsPsychSurveyText,
+  button_label:"CONTINUAR",
+  name: 'estrategia',
+  preamble: "<div style='font-size: 20px;'><strong>¿Utilizaste alguna estrategia en particular para intentar recordar los objetos y responder si era Antiguo, Similar, o Nuevo?</strong></div>",
+  questions: [
+    {prompt: '<p>Si la respuesta es afirmativa escribe "SI" y por favor describe en qué consistió tu estrategia</p><p> Si la respuesta es negativa solo escribe "NO" </p> ',
+    name: 'estrategia', 
+    required: true,
+    },
+  ]
+};
+
+var extra = {
+  type:jsPsychSurveyText,
+  button_label:"CONTINUAR",
+  preamble: "<div style='font-size: 20px;'><strong>Si tienes algún comentario o sugerencia por favor escríbelo, será bien recibido</strong></div>",
+  questions: [
+    {prompt: 'Si no es el caso, puedes presionar unicamente el botón de "CONTINUAR"',
+    name: 'extra',
+    required: false,
+    },
+  ]
+};
+
+var despedida= {
+  type:jsPsychHtmlButtonResponse,
+  stimulus: "<div style='font-size: 30px;'><p>La tarea ha terminado, sólo falta guardar los datos de tus respuestas.</p><p><strong>¡Muchas gracias por tu partipación!<p> :) </p></strong></div>",
+  choices: ['GUARDAR DATOS']
+};
+timeline.push(problemas,dificultad,recuerdo,estrategia,extra,despedida);
+
+//////////////////////////////////////////////
+///////// TERMINA EXPERIMENTO ////////////////
+//////////////////////////////////////////////
+
+timeline.push({
+  type: jsPsychFullscreen,
+  fullscreen_mode: false
+});
+
+timeline.push({
+  type: jsPsychHtmlKeyboardResponse,  
+ stimulus: "<div style='font-size: 20px;'><p><strong>Al presionar cualquier tecla se guardarán los datos.</p></strong><p><strong>Por favor, espera hasta que deje de dar vueltas el círculo para que terminen de cargar, cuando la pantalla quede en blanco puedes cerrar la página.</p></strong><p><strong>¡Gracias y hasta pronto!</p> </p></strong></div>"
+});
+    
 const save_data = {
   type: jsPsychPipe,
   action: "save",
@@ -772,7 +869,7 @@ const save_data = {
   filename: `${subject_id}.csv`,
   data_string: ()=>jsPsych.data.get().csv()
 };
-//timeline.push(save_data);
+timeline.push(save_data);
 
 jsPsych.run(timeline);
 
