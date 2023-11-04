@@ -672,7 +672,7 @@ timeline.push(repetir_practica_2);
 
 // Condicional para repetir instrucciones y práctica 
 var repetir_loop_2 = {
-  timeline: [instrucciones_tarea, instrucciones_2, cursor_off, inicio_practica_2, procedimiento_practica_2, cursor_on, repetir_practica_2],
+  timeline: [instrucciones_tarea, cursor_off, inicio_practica_2, procedimiento_practica_2, cursor_on, repetir_practica_2],
   conditional_function: function() {
     var dat_2 = jsPsych.data.getLastTrialData().values()[0];
     var answer_2 = dat_2.response.Q0;
