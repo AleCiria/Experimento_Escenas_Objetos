@@ -336,7 +336,7 @@ var practica = {
 // Mostrar el texto y recoger la respuesta del participante
 var practica_response = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus:  '<div style="font-size:25px; text-align: center;">' + texto_respuestas + '</div>',
+  stimulus:'<div style="font-size:25px; text-align: center;">' + texto_practica + '</div>'
   choices: ["v", "n"],
   trial_duration: 3000,
   
@@ -466,7 +466,7 @@ var test_trial= {
 ///////////RESPUESTAS////////////
 var respuestas_trial = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus:  '<div style="font-size:25px; text-align: center;">' + texto_respuestas + '</div>',
+  stimulus: '<div style="font-size:25px; text-align: center;">' + texto_respuestas + '</div>'
   choices: ['n', 'v'],
   trial_duration: 3000,
   data: { //se establecen los datos que se quieren registrar de la variable ensayo, respuesta del participante, cuál era la respuesta correcta, etc)
@@ -520,11 +520,11 @@ jsPsych.data.addProperties({condicion_fase_2: segundo_random});
 ///////instrucciones/////////////
 
 if (segundo_random == 1) {
-  instrucciones_2 = "instrucciones_teclas_1.jpg"; ejemplo = "ejemplo_1.jpg"; texto_respuestas = "<p><strong>ANTIGUO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>SIMILAR</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NUEVO</strong></p>"; stim_list_T_P = stim_list_T_P_1;
+  instrucciones_2 = "instrucciones_teclas_1.jpg"; ejemplo = "ejemplo_1.jpg"; texto_respuestas_2 = "<p><strong>ANTIGUO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>SIMILAR</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NUEVO</strong></p>"; stim_list_T_P = stim_list_T_P_1;
 } else if (segundo_random == 2) {
-  instrucciones_2 = "instrucciones_teclas_2.jpg"; ejemplo = "ejemplo_2.jpg"; texto_respuestas = "<p><strong>SIMILAR</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NUEVO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ANTIGUO</strong></p>"; stim_list_T_P = stim_list_T_P_2;
+  instrucciones_2 = "instrucciones_teclas_2.jpg"; ejemplo = "ejemplo_2.jpg"; texto_respuestas_2 = "<p><strong>SIMILAR</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>NUEVO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ANTIGUO</strong></p>"; stim_list_T_P = stim_list_T_P_2;
 } else if (segundo_random == 3) {
-  instrucciones_2 = "instrucciones_teclas_3.jpg"; ejemplo = "ejemplo_3.jpg";  texto_respuestas = "<p><strong>NUEVO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ANTIGUO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>SIMILAR</strong></p>"; stim_list_T_P = stim_list_T_P_3;
+  instrucciones_2 = "instrucciones_teclas_3.jpg"; ejemplo = "ejemplo_3.jpg";  texto_respuestas_2 = "<p><strong>NUEVO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ANTIGUO</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>SIMILAR</strong></p>"; stim_list_T_P = stim_list_T_P_3;
 }
 
 var instrucciones_tarea = {
@@ -574,7 +574,7 @@ var practica_2 = {
   stimulus_duration: 3000,
   stimulus_height: 550,
   maintain_aspect_ratio: true,
-    prompt: '<div style="font-size:25px; text-align: center;">' + texto_respuestas + '</div>',
+    prompt: '<div style="font-size:25px; text-align: center;">' + texto_respuestas_2 + '</div>',
     choices: ["V","N","B"],
   trial_duration: null,
 
@@ -698,7 +698,7 @@ var pruebaT={
     stimulus_height: 500,
     stimulus_duration: 3000,
     maintain_aspect_ratio: true,
-    prompt: '<div style="text-align: center; font-size:25px; ">' + texto_respuestas + '</div>',
+    prompt: '<div style="text-align: center; font-size:25px; ">' + texto_respuestas_2 + '</div>',
     choices: ["V","N","B"],
     save_trial_parameters: {
     stimulus: true,
