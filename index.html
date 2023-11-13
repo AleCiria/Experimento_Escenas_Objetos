@@ -336,7 +336,8 @@ var practica = {
 // Mostrar el texto y recoger la respuesta del participante
 var practica_response = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: texto_practica,
+  stimulus: '<div style="text-align: center; font-size: 25px;">' + texto_practica + '</div>',
+  choices: ['n', 'v'],
   choices: ["v", "n"],
   trial_duration: 3000,
   
@@ -466,7 +467,8 @@ var test_trial= {
 ///////////RESPUESTAS////////////
 var respuestas_trial = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: texto_respuestas,
+  stimulus: texto_respuestas, 
+  choices: ['n', 'v'],
   choices: ['n', 'v'],
   trial_duration: 3000,
   data: { //se establecen los datos que se quieren registrar de la variable ensayo, respuesta del participante, cuál era la respuesta correcta, etc)
