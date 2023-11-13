@@ -336,7 +336,7 @@ var practica = {
 // Mostrar el texto y recoger la respuesta del participante
 var practica_response = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: texto_practica,
+  stimulus:  '<div style="font-size:25px; text-align: center;">' + texto_respuestas + '</div>',
   choices: ["v", "n"],
   trial_duration: 3000,
   
@@ -466,7 +466,7 @@ var test_trial= {
 ///////////RESPUESTAS////////////
 var respuestas_trial = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: texto_respuestas,
+  stimulus:  '<div style="font-size:25px; text-align: center;">' + texto_respuestas + '</div>',
   choices: ['n', 'v'],
   trial_duration: 3000,
   data: { //se establecen los datos que se quieren registrar de la variable ensayo, respuesta del participante, cuál era la respuesta correcta, etc)
@@ -574,7 +574,7 @@ var practica_2 = {
   stimulus_duration: 3000,
   stimulus_height: 550,
   maintain_aspect_ratio: true,
-    prompt: '<div style="font-size:20px; text-align: center;">' + texto_respuestas + '</div>',
+    prompt: '<div style="font-size:25px; text-align: center;">' + texto_respuestas + '</div>',
     choices: ["V","N","B"],
   trial_duration: null,
 
@@ -698,7 +698,7 @@ var pruebaT={
     stimulus_height: 500,
     stimulus_duration: 3000,
     maintain_aspect_ratio: true,
-    prompt: '<div style="text-align: center;">' + texto_respuestas + '</div>',
+    prompt: '<div style="text-align: center; font-size:25px; ">' + texto_respuestas + '</div>',
     choices: ["V","N","B"],
     save_trial_parameters: {
     stimulus: true,
@@ -776,6 +776,20 @@ var problemas = {
   ],
 };
 
+var desempeno = {
+type: jsPsychSurveyMultiChoice,
+  button_label:"CONTINUAR",
+  
+  questions: [
+    {
+      prompt: "<div style='font-size: 20px;'><strong>En general, ¿cómo calificarías tu desempeño en la tarea?</strong></p><p>La respuesta se relaciona con las respuestas correctas que crees haber tenido </p></div>", 
+      name: 'desempeno', 
+      options: ['MUY BUENO','BUENO','REGULAR','MALO','MUY MALO'], 
+      required: true,
+    }
+  ],
+};
+    
 var dificultad ={
   type: jsPsychSurveyMultiChoice,
   button_label:"CONTINUAR",
@@ -795,7 +809,7 @@ var recuerdo = {
   name: 'recuerdo',
   preamble: "<div style='font-size: 20px;'><strong>¿Consideras que te fue más sencillo recordar ciertos objetos en comparación con otros?</strong></div>",
   questions: [
-    {prompt: '<p>Si la respuesta es afirmativa escribe "SI" y por favor describe cuáles objetos y por qué crees que fueron más sencillos de recordar</p> <p> si la respuesta es negativa solo escribe "NO" </p> ',
+    {prompt: '<p>Si la respuesta es afirmativa escribe "SI" y por favor describe cuáles objetos y por qué crees que fueron más sencillos de recordar,</p> <p> si la respuesta es negativa solo escribe "NO" </p> ',
     name: 'recuerdo', 
     required: true,
     },
@@ -808,7 +822,7 @@ var estrategia = {
   name: 'estrategia',
   preamble: "<div style='font-size: 20px;'><strong>¿Utilizaste alguna estrategia en particular para intentar recordar los objetos y responder si era Antiguo, Similar, o Nuevo?</strong></div>",
   questions: [
-    {prompt: '<p>Si la respuesta es afirmativa escribe "SI" y por favor describe en qué consistió tu estrategia</p><p> Si la respuesta es negativa solo escribe "NO" </p> ',
+    {prompt: '<p>Si la respuesta es afirmativa escribe "SI" y por favor describe en qué consistió tu estrategia,</p><p> Si la respuesta es negativa solo escribe "NO" </p> ',
     name: 'estrategia', 
     required: true,
     },
@@ -818,7 +832,7 @@ var estrategia = {
 var extra = {
   type:jsPsychSurveyText,
   button_label:"CONTINUAR",
-  preamble: "<div style='font-size: 20px;'><strong>Si tienes algún comentario o sugerencia por favor escríbelo, será bien recibido</strong></div>",
+  preamble: "<div style='font-size: 20px;'><strong>Si tienes algún otro comentario por favor escríbelo, será bien recibido</strong></div>",
   questions: [
     {prompt: 'Si no es el caso, puedes presionar unicamente el botón de "CONTINUAR"',
     name: 'extra',
@@ -832,7 +846,7 @@ var despedida= {
   stimulus: "<div style='font-size: 30px;'><p>La tarea ha terminado, sólo falta guardar los datos de tus respuestas.</p><p><strong>¡Muchas gracias por tu partipación!<p> :) </p></strong></div>",
   choices: ['GUARDAR DATOS']
 };
-timeline.push(problemas,dificultad,recuerdo,estrategia,extra,despedida);
+timeline.push(problemas,desempeno,dificultad,recuerdo,estrategia,extra,despedida);
 
 //////////////////////////////////////////////
 ///////// TERMINA EXPERIMENTO ////////////////
@@ -845,7 +859,7 @@ timeline.push({
 
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,  
- stimulus: "<div style='font-size: 20px;'><p><strong>Al presionar cualquier tecla se guardarán los datos.</p></strong><p><strong>Por favor, espera hasta que deje de dar vueltas el círculo para que terminen de cargar, cuando la pantalla quede en blanco puedes cerrar la página.</p></strong><p><strong>¡Gracias y hasta pronto!</p> </p></strong></div>"
+ stimulus: "<div style='font-size: 20px;'><p><strong>Al presionar cualquier tecla se guardarán los datos.</p></strong><p><strong>Por favor, espera hasta que el círculo deje de dar vueltas para que terminen de cargar, cuando la pantalla quede en blanco puedes cerrar la página para finalizar.</p></strong><p><strong>¡Gracias y hasta pronto!</p> </p></strong></div>"
 });
     
 const save_data = {
